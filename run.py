@@ -28,6 +28,15 @@ with app.app_context():
 def inicio():
     return redirect(url_for('login'))
 
+@app.route('/dashboard/home')
+def dashboard_home():
+    return render_template('dashboard/home.html')
+
+@app.route('/dashboard/upload')
+def upload_page():
+    return render_template('dashboard/upload.html')
+
+
 # ================================
 # LOGIN (Versión SQLAlchemy)
 # ================================
@@ -42,7 +51,8 @@ def login():
 
         if usuario and check_password_hash(usuario.password_hash, passwd):
             login_user(usuario) # Esto inicia la sesión automáticamente
-            return redirect(url_for('usuario_bienvenida'))
+            return redirect(url_for('dashboard_home'))
+
         
         flash("Correo o contraseña incorrectos") # Usa flash para mensajes de error
         return render_template('login.html')
