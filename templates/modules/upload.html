@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FinanSight - Subir Documentos</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="relative flex min-h-screen w-full">
+        <!-- SideNavBar -->
+        <aside
+            class="flex-shrink-0 w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col">
+            <div class="p-4 flex flex-col h-full">
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                        data-alt="FinanSight logo with abstract geometric shapes"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCldrU9x_FAoJdX8V3HYs07ZbzqyxTehatUc5MMfboxUlCcIX1R26_215_N86v2o3-LTDY3sjV1BmH7VMcuwEDws5WjLXmmZ1mlK-DseA3x46IBgfcDGspmXZFoTbEcbR79WBX_DEDgB1WwR6F0ZXveBojI0AsykMMY1BsL5k9BK2woxjfR-XCz28EzN2tBAittjIQqKmvsIeoy98P2eGlkEfu2GjZT2b3gQs6-r84jj8rxDMaVQVdHcB6dpwGanivqqMarNaCZiuo");'>
+                    </div>
+                    <div class="flex flex-col">
+                        <h1 class="text-[#111418] dark:text-white text-base font-medium leading-normal">FinanSight</h1>
+                        <p class="text-[#60758a] dark:text-gray-400 text-sm font-normal leading-normal">Análisis
+                            Financiero</p>
+                    </div>
+                </div>
+                 <nav class="flex flex-col gap-2 flex-grow">
+
+        <!-- INICIO -->
+        <a href="{{ url_for('dashboard_home') }}"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg 
+           {% if request.path == '/dashboard' %} bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300 {% else %} 
+           text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 {% endif %}">
+            <span class="material-symbols-outlined">home</span>
+            <p class="text-sm font-medium">Inicio</p>
+        </a>
+
+        <!-- DOCUMENTOS -->
+        <a href="{{ url_for('documentos_view') }}"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg 
+           text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <span class="material-symbols-outlined">description</span>
+            <p class="text-sm font-medium">Documentos</p>
+        </a>
+
+        <!-- IA -->
+        <a href="{{ url_for('ia_analisis_view') }}"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg 
+           text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <span class="material-symbols-outlined">psychology</span>
+            <p class="text-sm font-medium">IA – Análisis</p>
+        </a>
+
+        <!-- VALIDACIÓN -->
+        <a href="{{ url_for('validacion_view') }}"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg 
+           text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <span class="material-symbols-outlined">verified</span>
+            <p class="text-sm font-medium">Validación</p>
+        </a>
+
+        <!-- INDICADORES -->
+        <a href="{{ url_for('indicadores_view') }}"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg 
+           text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <span class="material-symbols-outlined">pie_chart</span>
+            <p class="text-sm font-medium">Indicadores</p>
+        </a>
+
+        <!-- RIESGOS -->
+        <a href="{{ url_for('riesgos_view') }}"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg 
+           text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <span class="material-symbols-outlined">security</span>
+            <p class="text-sm font-medium">Riesgos</p>
+        </a>
+
+        <!-- PROYECCIONES -->
+        <a href="{{ url_for('proyecciones_view') }}"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg 
+           text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <span class="material-symbols-outlined">trending_up</span>
+            <p class="text-sm font-medium">Proyecciones</p>
+        </a>
+
+        <!-- REPORTES -->
+        <a href="{{ url_for('reportes_view') }}"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg 
+           text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <span class="material-symbols-outlined">bar_chart</span>
+            <p class="text-sm font-medium">Reportes</p>
+        </a>
+
+        <!-- BLOCKCHAIN -->
+        <a href="{{ url_for('blockchain_view') }}"
+           class="flex items-center gap-3 px-3 py-2 rounded-lg 
+           text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800">
+            <span class="material-symbols-outlined">hub</span>
+            <p class="text-sm font-medium">Blockchain</p>
+        </a>
+
+    </nav>
+                <div class="mt-auto">
+                    <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20"
+                        href="#">
+                        <span class="material-symbols-outlined">help</span>
+                        <p class="text-sm font-medium leading-normal">Ayuda</p>
+                    </a>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 p-8 overflow-y-auto">
+            <div class="max-w-4xl mx-auto">
+                <!-- PageHeading -->
+                <div class="mb-8">
+                    <p class="text-[#111418] dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+                        Carga tus Documentos</p>
+                    <p class="text-[#60758a] dark:text-gray-400 text-base font-normal leading-normal mt-2">Sube tus
+                        documentos financieros para análisis. Aceptamos fotos o PDFs de cuadernos, boletas y facturas.
+                    </p>
+                </div>
+                <!-- EmptyState (Drag & Drop Zone) -->
+                <div
+                    class="flex flex-col items-center gap-6 rounded-xl border-2 border-dashed border-[#dbe0e6] dark:border-gray-700 p-8 bg-white dark:bg-gray-900">
+                    <span class="material-symbols-outlined text-primary text-5xl">cloud_upload</span>
+                    <div class="flex max-w-lg flex-col items-center gap-2">
+                        <p
+                            class="text-[#111418] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] text-center">
+                            Arrastra y suelta tus archivos aquí, o haz clic para seleccionarlos
+                        </p>
+                        <p class="text-[#60758a] dark:text-gray-400 text-sm font-normal leading-normal text-center">
+                            Formatos aceptados: PDF, JPG, PNG. Tamaño máximo 10MB.</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-center gap-4">
+                        <button
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                            <span class="truncate">Subir Archivo</span>
+                        </button>
+                        <button
+                            class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-background-light dark:bg-gray-800 text-[#111418] dark:text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] border border-gray-300 dark:border-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                            <span class="material-symbols-outlined text-lg">qr_code_scanner</span>
+                            <span class="truncate">Capturar desde Móvil</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- SectionHeader for History -->
+                <h2
+                    class="text-[#111418] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] pt-10 pb-4">
+                    Historial de Documentos Subidos</h2>
+                <!-- Document List Table -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead
+                                class="text-xs text-gray-700 dark:text-gray-400 uppercase bg-gray-50 dark:bg-gray-800">
+                                <tr>
+                                    <th class="px-6 py-3 font-medium" scope="col">Nombre del Archivo</th>
+                                    <th class="px-6 py-3 font-medium" scope="col">Fecha de Subida</th>
+                                    <th class="px-6 py-3 font-medium" scope="col">Estado</th>
+                                    <th class="px-6 py-3" scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b dark:border-gray-800">
+                                    <td
+                                        class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-red-500">picture_as_pdf</span>
+                                        <span>Factura_Marzo_2024.pdf</span>
+                                    </td>
+                                    <td class="px-6 py-4">15 Abr 2024</td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300">
+                                            Analizado
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button
+                                            class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                                            <span class="material-symbols-outlined">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b dark:border-gray-800">
+                                    <td
+                                        class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-blue-500">image</span>
+                                        <span>Boleta_Venta_001.jpg</span>
+                                    </td>
+                                    <td class="px-6 py-4">12 Abr 2024</td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-300">
+                                            Pendiente
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button
+                                            class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                                            <span class="material-symbols-outlined">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-blue-500">image</span>
+                                        <span>Cuaderno_Gastos_Sem1.png</span>
+                                    </td>
+                                    <td class="px-6 py-4">10 Abr 2024</td>
+                                    <td class="px-6 py-4">
+                                        <span
+                                            class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-300">
+                                            Rechazado
+                                        </span>
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        <button
+                                            class="text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+                                            <span class="material-symbols-outlined">more_vert</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

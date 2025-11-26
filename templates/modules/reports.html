@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FinanSight - Reportes</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0A2A4E",
+                        "primary-light": "#4A90E2",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#101922",
+                        "surface-light": "#F7F9FC",
+                        "surface-dark": "#1A2530",
+                        "text-main": "#333333",
+                        "text-main-dark": "#E5E7EB",
+                        "text-secondary": "#6B7280",
+                        "text-secondary-dark": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-text-main-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-6 sm:px-10 py-4 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+                <div class="flex items-center gap-4 text-primary">
+                    <span class="material-symbols-outlined text-3xl">insights</span>
+                    <h2 class="text-primary text-xl font-bold leading-tight tracking-[-0.015em]">FinanSight</h2>
+                </div>
+                <div class="flex flex-1 justify-end gap-4 items-center">
+                    <div class="hidden sm:flex relative items-center">
+                        <span
+                            class="material-symbols-outlined absolute left-3 text-text-secondary dark:text-text-secondary-dark">search</span>
+                        <input
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-main dark:text-text-main-dark focus:outline-none focus:ring-2 focus:ring-primary-light border border-gray-300 dark:border-gray-600 bg-surface-light dark:bg-surface-dark h-10 placeholder:text-text-secondary dark:placeholder:text-text-secondary-dark pl-10 pr-4 text-sm font-normal leading-normal"
+                            placeholder="Buscar reportes..." value="" />
+                    </div>
+                    <button
+                        class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-surface-light dark:bg-surface-dark text-text-secondary dark:text-text-secondary-dark hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <span class="material-symbols-outlined text-2xl">notifications</span>
+                    </button>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                        data-alt="User profile picture"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiFBVGrR2sU1wekB2EkjKz4DQrsYJemnjCWfKo96tnASDUwyXG4ikK4dsaUjz9ToBPYEYYto2MC5iW3qxZahMY9el8r18TVtEoKZq2SvLCb5KGUHD8i_amSujSl81FyxnfNgwVm2GHb-rPd1SmcN1GkwzNX7cCAg1GlBL_Gn9wTtf_RgjeNJYApttA2K8BSWeixUJIoBMqw5_852Iy-VsPrk77kqdQQRpeD5NtPWEgDCgNI2E3hGTKBBZiua0FvHU2hV2TQyllv1M");'>
+                    </div>
+                </div>
+            </header>
+            <main class="px-4 sm:px-10 flex flex-1 justify-center py-8">
+                <div class="layout-content-container flex flex-col w-full max-w-7xl flex-1">
+                    <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+                        <h1 class="text-primary dark:text-white text-3xl font-bold tracking-[-0.033em]">Historial de
+                            Reportes</h1>
+                        <button
+                            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 gap-2">
+                            <span class="material-symbols-outlined">add_circle</span>
+                            <span class="truncate">Generar Nuevo Reporte</span>
+                        </button>
+                    </div>
+                    <div class="flex justify-between gap-2 px-0 py-3 mb-4 items-center">
+                        <div class="flex gap-2">
+                            <button
+                                class="flex items-center gap-2 h-10 px-4 rounded-lg bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-600 text-text-main dark:text-text-main-dark text-sm hover:bg-gray-200 dark:hover:bg-gray-700">
+                                <span class="material-symbols-outlined text-xl">calendar_today</span>
+                                <span>Filtrar por Fecha</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-0 py-3 @container">
+                        <div
+                            class="flex overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-surface-dark">
+                            <table class="flex-1 w-full"
+                                style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(255,255,255)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e');">
+                                <thead class="bg-surface-light dark:bg-surface-dark/50">
+                                    <tr class="">
+                                        <th class="px-6 py-4 text-left w-12"><input
+                                                class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary-light checked:bg-primary-light checked:border-primary-light checked:bg-[image:--checkbox-tick-svg] focus:ring-primary-light focus:ring-offset-background-light dark:focus:ring-offset-surface-dark"
+                                                type="checkbox" /></th>
+                                        <th
+                                            class="px-6 py-4 text-left text-text-secondary dark:text-text-secondary-dark text-xs font-medium uppercase tracking-wider">
+                                            Nombre del Reporte</th>
+                                        <th
+                                            class="px-6 py-4 text-left text-text-secondary dark:text-text-secondary-dark text-xs font-medium uppercase tracking-wider">
+                                            Fecha de Creación</th>
+                                        <th
+                                            class="px-6 py-4 text-left text-text-secondary dark:text-text-secondary-dark text-xs font-medium uppercase tracking-wider">
+                                            Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tr class="hover:bg-surface-light dark:hover:bg-surface-dark/50">
+                                        <td class="px-6 py-4"><input
+                                                class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary-light checked:bg-primary-light checked:border-primary-light checked:bg-[image:--checkbox-tick-svg] focus:ring-primary-light focus:ring-offset-background-light dark:focus:ring-offset-surface-dark"
+                                                type="checkbox" /></td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-main dark:text-text-main-dark text-sm font-medium">
+                                            Reporte Mensual - Mayo 2024</td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-secondary dark:text-text-secondary-dark text-sm">
+                                            01/06/2024</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex items-center gap-4">
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#reporte">
+                                                    <span class="material-symbols-outlined text-xl">visibility</span>
+                                                    Ver Detalle
+                                                </a>
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#">
+                                                    <span class="material-symbols-outlined text-xl">download</span>
+                                                    Descargar PDF
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-light dark:hover:bg-surface-dark/50">
+                                        <td class="px-6 py-4"><input
+                                                class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary-light checked:bg-primary-light checked:border-primary-light checked:bg-[image:--checkbox-tick-svg] focus:ring-primary-light focus:ring-offset-background-light dark:focus:ring-offset-surface-dark"
+                                                type="checkbox" /></td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-main dark:text-text-main-dark text-sm font-medium">
+                                            Reporte Mensual - Abril 2024</td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-secondary dark:text-text-secondary-dark text-sm">
+                                            01/05/2024</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex items-center gap-4">
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#reporte">
+                                                    <span class="material-symbols-outlined text-xl">visibility</span>
+                                                    Ver Detalle
+                                                </a>
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#">
+                                                    <span class="material-symbols-outlined text-xl">download</span>
+                                                    Descargar PDF
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-light dark:hover:bg-surface-dark/50">
+                                        <td class="px-6 py-4"><input
+                                                class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary-light checked:bg-primary-light checked:border-primary-light checked:bg-[image:--checkbox-tick-svg] focus:ring-primary-light focus:ring-offset-background-light dark:focus:ring-offset-surface-dark"
+                                                type="checkbox" /></td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-main dark:text-text-main-dark text-sm font-medium">
+                                            Reporte Mensual - Marzo 2024</td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-secondary dark:text-text-secondary-dark text-sm">
+                                            01/04/2024</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex items-center gap-4">
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#reporte">
+                                                    <span class="material-symbols-outlined text-xl">visibility</span>
+                                                    Ver Detalle
+                                                </a>
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#">
+                                                    <span class="material-symbols-outlined text-xl">download</span>
+                                                    Descargar PDF
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="mt-12" id="reporte">
+                        <div
+                            class="flex flex-wrap justify-between items-center gap-4 mb-6 pt-5 border-t border-gray-200 dark:border-gray-700">
+                            <h2 class="text-primary dark:text-white text-2xl font-bold tracking-tight">Análisis
+                                Financiero - Mayo 2024</h2>
+                            <button
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-primary-light text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 gap-2">
+                                <span class="material-symbols-outlined">picture_as_pdf</span>
+                                <span class="truncate">Descargar PDF</span>
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div
+                                class="p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3 class="text-sm font-medium text-text-secondary dark:text-text-secondary-dark mb-1">
+                                    Ingresos Totales</h3>
+                                <p class="text-3xl font-bold text-green-600 dark:text-green-400">$12,450.00</p>
+                            </div>
+                            <div
+                                class="p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3 class="text-sm font-medium text-text-secondary dark:text-text-secondary-dark mb-1">
+                                    Gastos Totales</h3>
+                                <p class="text-3xl font-bold text-red-600 dark:text-red-400">$8,230.50</p>
+                            </div>
+                            <div
+                                class="p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3 class="text-sm font-medium text-text-secondary dark:text-text-secondary-dark mb-1">
+                                    Ganancia Neta</h3>
+                                <p class="text-3xl font-bold text-primary dark:text-primary-light">$4,219.50</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
+                            <div
+                                class="lg:col-span-3 p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3 class="text-lg font-semibold text-text-main dark:text-text-main-dark mb-4">Ventas
+                                    vs. Gastos</h3>
+                                <div class="w-full h-64 bg-contain bg-center bg-no-repeat"
+                                    data-alt="Bar chart showing sales vs expenses over the last few months."
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCT_BBk2EFkT9PSeT9q-Mr7DmLegsbODDKw9FjAIzFYtGcYKIl9qVqQm0oWZHfJbfQfuwqdrIR8ow0jyQbzaJEL9-Zc5qi3VXbHFj-bZfa3EJN86-WjciZYMUmiRm6SSV711gZDtvj46URewHO5y7MuG2SxIQOeudceWcMrfF_qnCKuHyq_km-M1e7aZeWsR7CcEydoSv238pX1z1JT2FJ-ASE0MRt6ithK561lXYVQFJ1ULegpCcB47v4HACMCazsCkhqjSHcG7xg');">
+                                </div>
+                            </div>
+                            <div
+                                class="lg:col-span-2 p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3 class="text-lg font-semibold text-text-main dark:text-text-main-dark mb-4">
+                                    Distribución de Gastos</h3>
+                                <div class="w-full h-64 bg-contain bg-center bg-no-repeat"
+                                    data-alt="Donut chart showing expense distribution by category."
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoAkDtNLHu4Gn2SzH5SRpZaTZTLA_OscLhUCaSiBe5CAsMYrpl26DtETrcCpCgZzfogxxFdTC3_MoiATBcQUQn_c0kVEdMQ_kjs4hRyTPBEkOfQsv8JEPKWzi7Ra-3J-uJxzRjO5ja1IhulLKdErayGbiHQyWgR1s6IhQ_hU-2WXvYoIT1-faKEe36abUENDa7BTpiUG1Cb4SzyEtxO97nWpAeHg93LadHpp3vx99DoeW8tG21R-7yVkyj7k2aSapj2iyQ4bt2cus');">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div
+                                class="p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3
+                                    class="text-lg font-semibold text-text-main dark:text-text-main-dark mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-yellow-500">warning</span> Resumen de
+                                    Riesgos
+                                </h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-red-500 mt-0.5">error</span>
+                                        <div>
+                                            <p class="font-medium text-text-main dark:text-text-main-dark">Flujo de caja
+                                                bajo</p>
+                                            <p class="text-text-secondary dark:text-text-secondary-dark">La liquidez es
+                                                ajustada, se recomienda monitorear los cobros pendientes.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-orange-500 mt-0.5">report_problem</span>
+                                        <div>
+                                            <p class="font-medium text-text-main dark:text-text-main-dark">Alta
+                                                concentración de gastos</p>
+                                            <p class="text-text-secondary dark:text-text-secondary-dark">El 45% de los
+                                                gastos se concentra en "Proveedores". Evaluar diversificar.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-6 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/20">
+                                <h3
+                                    class="text-lg font-semibold text-primary dark:text-primary-light mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">account_balance</span> Recomendación para el
+                                    Banco
+                                </h3>
+                                <p class="text-sm text-text-secondary dark:text-text-secondary-dark leading-relaxed">
+                                    El negocio demuestra una rentabilidad constante y un crecimiento mensual sostenido
+                                    en ingresos del 8%. A pesar de un flujo de caja ajustado, la capacidad de pago es
+                                    sólida. Se considera un candidato viable para un crédito de capital de trabajo de
+                                    hasta $5,000 para optimizar su ciclo de compras y mejorar la liquidez.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FinanSight - Reportes</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0A2A4E",
+                        "primary-light": "#4A90E2",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#101922",
+                        "surface-light": "#F7F9FC",
+                        "surface-dark": "#1A2530",
+                        "text-main": "#333333",
+                        "text-main-dark": "#E5E7EB",
+                        "text-secondary": "#6B7280",
+                        "text-secondary-dark": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-text-main-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-gray-700 px-6 sm:px-10 py-4 bg-background-light dark:bg-background-dark sticky top-0 z-10">
+                <div class="flex items-center gap-4 text-primary">
+                    <span class="material-symbols-outlined text-3xl">insights</span>
+                    <h2 class="text-primary text-xl font-bold leading-tight tracking-[-0.015em]">FinanSight</h2>
+                </div>
+                <div class="flex flex-1 justify-end gap-4 items-center">
+                    <div class="hidden sm:flex relative items-center">
+                        <span
+                            class="material-symbols-outlined absolute left-3 text-text-secondary dark:text-text-secondary-dark">search</span>
+                        <input
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-main dark:text-text-main-dark focus:outline-none focus:ring-2 focus:ring-primary-light border border-gray-300 dark:border-gray-600 bg-surface-light dark:bg-surface-dark h-10 placeholder:text-text-secondary dark:placeholder:text-text-secondary-dark pl-10 pr-4 text-sm font-normal leading-normal"
+                            placeholder="Buscar reportes..." value="" />
+                    </div>
+                    <button
+                        class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-surface-light dark:bg-surface-dark text-text-secondary dark:text-text-secondary-dark hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <span class="material-symbols-outlined text-2xl">notifications</span>
+                    </button>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                        data-alt="User profile picture"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCiFBVGrR2sU1wekB2EkjKz4DQrsYJemnjCWfKo96tnASDUwyXG4ikK4dsaUjz9ToBPYEYYto2MC5iW3qxZahMY9el8r18TVtEoKZq2SvLCb5KGUHD8i_amSujSl81FyxnfNgwVm2GHb-rPd1SmcN1GkwzNX7cCAg1GlBL_Gn9wTtf_RgjeNJYApttA2K8BSWeixUJIoBMqw5_852Iy-VsPrk77kqdQQRpeD5NtPWEgDCgNI2E3hGTKBBZiua0FvHU2hV2TQyllv1M");'>
+                    </div>
+                </div>
+            </header>
+            <main class="px-4 sm:px-10 flex flex-1 justify-center py-8">
+                <div class="layout-content-container flex flex-col w-full max-w-7xl flex-1">
+                    <div class="flex flex-wrap justify-between items-center gap-4 mb-6">
+                        <h1 class="text-primary dark:text-white text-3xl font-bold tracking-[-0.033em]">Historial de
+                            Reportes</h1>
+                        <button
+                            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 gap-2">
+                            <span class="material-symbols-outlined">add_circle</span>
+                            <span class="truncate">Generar Nuevo Reporte</span>
+                        </button>
+                    </div>
+                    <div class="flex justify-between gap-2 px-0 py-3 mb-4 items-center">
+                        <div class="flex gap-2">
+                            <button
+                                class="flex items-center gap-2 h-10 px-4 rounded-lg bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-600 text-text-main dark:text-text-main-dark text-sm hover:bg-gray-200 dark:hover:bg-gray-700">
+                                <span class="material-symbols-outlined text-xl">calendar_today</span>
+                                <span>Filtrar por Fecha</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="px-0 py-3 @container">
+                        <div
+                            class="flex overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-surface-dark">
+                            <table class="flex-1 w-full"
+                                style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(255,255,255)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e');">
+                                <thead class="bg-surface-light dark:bg-surface-dark/50">
+                                    <tr class="">
+                                        <th class="px-6 py-4 text-left w-12"><input
+                                                class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary-light checked:bg-primary-light checked:border-primary-light checked:bg-[image:--checkbox-tick-svg] focus:ring-primary-light focus:ring-offset-background-light dark:focus:ring-offset-surface-dark"
+                                                type="checkbox" /></th>
+                                        <th
+                                            class="px-6 py-4 text-left text-text-secondary dark:text-text-secondary-dark text-xs font-medium uppercase tracking-wider">
+                                            Nombre del Reporte</th>
+                                        <th
+                                            class="px-6 py-4 text-left text-text-secondary dark:text-text-secondary-dark text-xs font-medium uppercase tracking-wider">
+                                            Fecha de Creación</th>
+                                        <th
+                                            class="px-6 py-4 text-left text-text-secondary dark:text-text-secondary-dark text-xs font-medium uppercase tracking-wider">
+                                            Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tr class="hover:bg-surface-light dark:hover:bg-surface-dark/50">
+                                        <td class="px-6 py-4"><input
+                                                class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary-light checked:bg-primary-light checked:border-primary-light checked:bg-[image:--checkbox-tick-svg] focus:ring-primary-light focus:ring-offset-background-light dark:focus:ring-offset-surface-dark"
+                                                type="checkbox" /></td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-main dark:text-text-main-dark text-sm font-medium">
+                                            Reporte Mensual - Mayo 2024</td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-secondary dark:text-text-secondary-dark text-sm">
+                                            01/06/2024</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex items-center gap-4">
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#reporte">
+                                                    <span class="material-symbols-outlined text-xl">visibility</span>
+                                                    Ver Detalle
+                                                </a>
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#">
+                                                    <span class="material-symbols-outlined text-xl">download</span>
+                                                    Descargar PDF
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-light dark:hover:bg-surface-dark/50">
+                                        <td class="px-6 py-4"><input
+                                                class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary-light checked:bg-primary-light checked:border-primary-light checked:bg-[image:--checkbox-tick-svg] focus:ring-primary-light focus:ring-offset-background-light dark:focus:ring-offset-surface-dark"
+                                                type="checkbox" /></td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-main dark:text-text-main-dark text-sm font-medium">
+                                            Reporte Mensual - Abril 2024</td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-secondary dark:text-text-secondary-dark text-sm">
+                                            01/05/2024</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex items-center gap-4">
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#reporte">
+                                                    <span class="material-symbols-outlined text-xl">visibility</span>
+                                                    Ver Detalle
+                                                </a>
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#">
+                                                    <span class="material-symbols-outlined text-xl">download</span>
+                                                    Descargar PDF
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-surface-light dark:hover:bg-surface-dark/50">
+                                        <td class="px-6 py-4"><input
+                                                class="h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-transparent text-primary-light checked:bg-primary-light checked:border-primary-light checked:bg-[image:--checkbox-tick-svg] focus:ring-primary-light focus:ring-offset-background-light dark:focus:ring-offset-surface-dark"
+                                                type="checkbox" /></td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-main dark:text-text-main-dark text-sm font-medium">
+                                            Reporte Mensual - Marzo 2024</td>
+                                        <td
+                                            class="px-6 py-4 whitespace-nowrap text-text-secondary dark:text-text-secondary-dark text-sm">
+                                            01/04/2024</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                            <div class="flex items-center gap-4">
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#reporte">
+                                                    <span class="material-symbols-outlined text-xl">visibility</span>
+                                                    Ver Detalle
+                                                </a>
+                                                <a class="text-primary-light hover:text-primary flex items-center gap-1.5"
+                                                    href="#">
+                                                    <span class="material-symbols-outlined text-xl">download</span>
+                                                    Descargar PDF
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="mt-12" id="reporte">
+                        <div
+                            class="flex flex-wrap justify-between items-center gap-4 mb-6 pt-5 border-t border-gray-200 dark:border-gray-700">
+                            <h2 class="text-primary dark:text-white text-2xl font-bold tracking-tight">Análisis
+                                Financiero - Mayo 2024</h2>
+                            <button
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-11 px-6 bg-primary-light text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-opacity-90 gap-2">
+                                <span class="material-symbols-outlined">picture_as_pdf</span>
+                                <span class="truncate">Descargar PDF</span>
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                            <div
+                                class="p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3 class="text-sm font-medium text-text-secondary dark:text-text-secondary-dark mb-1">
+                                    Ingresos Totales</h3>
+                                <p class="text-3xl font-bold text-green-600 dark:text-green-400">$12,450.00</p>
+                            </div>
+                            <div
+                                class="p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3 class="text-sm font-medium text-text-secondary dark:text-text-secondary-dark mb-1">
+                                    Gastos Totales</h3>
+                                <p class="text-3xl font-bold text-red-600 dark:text-red-400">$8,230.50</p>
+                            </div>
+                            <div
+                                class="p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3 class="text-sm font-medium text-text-secondary dark:text-text-secondary-dark mb-1">
+                                    Ganancia Neta</h3>
+                                <p class="text-3xl font-bold text-primary dark:text-primary-light">$4,219.50</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 mb-8">
+                            <div
+                                class="lg:col-span-3 p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3 class="text-lg font-semibold text-text-main dark:text-text-main-dark mb-4">Ventas
+                                    vs. Gastos</h3>
+                                <div class="w-full h-64 bg-contain bg-center bg-no-repeat"
+                                    data-alt="Bar chart showing sales vs expenses over the last few months."
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCT_BBk2EFkT9PSeT9q-Mr7DmLegsbODDKw9FjAIzFYtGcYKIl9qVqQm0oWZHfJbfQfuwqdrIR8ow0jyQbzaJEL9-Zc5qi3VXbHFj-bZfa3EJN86-WjciZYMUmiRm6SSV711gZDtvj46URewHO5y7MuG2SxIQOeudceWcMrfF_qnCKuHyq_km-M1e7aZeWsR7CcEydoSv238pX1z1JT2FJ-ASE0MRt6ithK561lXYVQFJ1ULegpCcB47v4HACMCazsCkhqjSHcG7xg');">
+                                </div>
+                            </div>
+                            <div
+                                class="lg:col-span-2 p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3 class="text-lg font-semibold text-text-main dark:text-text-main-dark mb-4">
+                                    Distribución de Gastos</h3>
+                                <div class="w-full h-64 bg-contain bg-center bg-no-repeat"
+                                    data-alt="Donut chart showing expense distribution by category."
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDoAkDtNLHu4Gn2SzH5SRpZaTZTLA_OscLhUCaSiBe5CAsMYrpl26DtETrcCpCgZzfogxxFdTC3_MoiATBcQUQn_c0kVEdMQ_kjs4hRyTPBEkOfQsv8JEPKWzi7Ra-3J-uJxzRjO5ja1IhulLKdErayGbiHQyWgR1s6IhQ_hU-2WXvYoIT1-faKEe36abUENDa7BTpiUG1Cb4SzyEtxO97nWpAeHg93LadHpp3vx99DoeW8tG21R-7yVkyj7k2aSapj2iyQ4bt2cus');">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div
+                                class="p-6 rounded-xl bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-700">
+                                <h3
+                                    class="text-lg font-semibold text-text-main dark:text-text-main-dark mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-yellow-500">warning</span> Resumen de
+                                    Riesgos
+                                </h3>
+                                <ul class="space-y-3 text-sm">
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-red-500 mt-0.5">error</span>
+                                        <div>
+                                            <p class="font-medium text-text-main dark:text-text-main-dark">Flujo de caja
+                                                bajo</p>
+                                            <p class="text-text-secondary dark:text-text-secondary-dark">La liquidez es
+                                                ajustada, se recomienda monitorear los cobros pendientes.</p>
+                                        </div>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <span
+                                            class="material-symbols-outlined text-orange-500 mt-0.5">report_problem</span>
+                                        <div>
+                                            <p class="font-medium text-text-main dark:text-text-main-dark">Alta
+                                                concentración de gastos</p>
+                                            <p class="text-text-secondary dark:text-text-secondary-dark">El 45% de los
+                                                gastos se concentra en "Proveedores". Evaluar diversificar.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="p-6 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/20">
+                                <h3
+                                    class="text-lg font-semibold text-primary dark:text-primary-light mb-4 flex items-center gap-2">
+                                    <span class="material-symbols-outlined">account_balance</span> Recomendación para el
+                                    Banco
+                                </h3>
+                                <p class="text-sm text-text-secondary dark:text-text-secondary-dark leading-relaxed">
+                                    El negocio demuestra una rentabilidad constante y un crecimiento mensual sostenido
+                                    en ingresos del 8%. A pesar de un flujo de caja ajustado, la capacidad de pago es
+                                    sólida. Se considera un candidato viable para un crédito de capital de trabajo de
+                                    hasta $5,000 para optimizar su ciclo de compras y mejorar la liquidez.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
