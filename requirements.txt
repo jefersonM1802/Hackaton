@@ -13,7 +13,7 @@ email-validator==2.1.0.post1 # Para validar correos reales en registro
 
 # --- INTELIGENCIA ARTIFICIAL (Gemini & Imágenes) ---
 google-generativeai>=0.4.0   # SDK oficial de Gemini
-Pillow==10.1.0               # Procesamiento de imágenes (Recibos/Facturas)
+Pillow>=10.1.0               # Procesamiento de imágenes (Recibos/Facturas)
 
 # --- CIENCIA DE DATOS Y FINANZAS (Pandas) ---
 pandas>=2.1.0                # Cálculos financieros y proyecciones
