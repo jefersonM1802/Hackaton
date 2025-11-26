@@ -1,0 +1,253 @@
+/* Import variables and components */
+@import 'variables.css';
+@import 'components.css';
+
+/* Upload Zone */
+.upload-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    border-radius: var(--border-radius-xl);
+    border: 2px dashed var(--border-light);
+    padding: 2rem;
+    background-color: var(--white);
+    margin-bottom: 2rem;
+}
+
+.dark .upload-zone {
+    border-color: var(--slate-700);
+    background-color: var(--slate-900);
+}
+
+.upload-icon {
+    color: var(--primary);
+    font-size: 3rem;
+}
+
+.upload-text {
+    display: flex;
+    max-width: 32rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.upload-title {
+    color: var(--text-primary);
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    text-align: center;
+}
+
+.dark .upload-title {
+    color: var(--text-white);
+}
+
+.upload-description {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.dark .upload-description {
+    color: var(--slate-400);
+}
+
+.upload-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .upload-buttons {
+        flex-direction: row;
+    }
+}
+
+/* Documents Table */
+.documents-table {
+    background-color: var(--white);
+    border-radius: var(--border-radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--slate-200);
+}
+
+.dark .documents-table {
+    background-color: var(--slate-900);
+    border-color: var(--slate-800);
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    font-size: 0.875rem;
+    text-align: left;
+    color: var(--slate-500);
+}
+
+.dark .table {
+    color: var(--slate-400);
+}
+
+.table-header {
+    font-size: 0.75rem;
+    color: var(--slate-700);
+    text-transform: uppercase;
+    background-color: var(--slate-50);
+}
+
+.dark .table-header {
+    color: var(--slate-400);
+    background-color: var(--slate-800);
+}
+
+.table-heading {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+}
+
+.table-body {
+    background-color: var(--white);
+}
+
+.dark .table-body {
+    background-color: var(--slate-900);
+}
+
+.table-row {
+    border-bottom: 1px solid var(--slate-200);
+}
+
+.dark .table-row {
+    border-bottom-color: var(--slate-800);
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.table-cell {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+}
+
+.file-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.dark .file-cell {
+    color: var(--text-white);
+}
+
+.file-icon {
+    font-size: 1.25rem;
+}
+
+.file-icon.pdf {
+    color: var(--icon-red);
+}
+
+.file-icon.image {
+    color: var(--icon-blue);
+}
+
+.file-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.actions-cell {
+    text-align: right;
+}
+
+.action-button {
+    color: var(--slate-500);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: var(--border-radius);
+    transition: color 0.2s;
+}
+
+.dark .action-button {
+    color: var(--slate-400);
+}
+
+.action-button:hover {
+    color: var(--text-primary);
+}
+
+.dark .action-button:hover {
+    color: var(--text-white);
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.125rem 0.625rem;
+    border-radius: var(--border-radius-full);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status-badge.analyzed {
+    background-color: var(--green-100);
+    color: var(--green-800);
+}
+
+.dark .status-badge.analyzed {
+    background-color: var(--green-900);
+    color: var(--green-100);
+}
+
+.status-badge.pending {
+    background-color: var(--yellow-100);
+    color: var(--yellow-800);
+}
+
+.dark .status-badge.pending {
+    background-color: var(--yellow-900);
+    color: var(--yellow-100);
+}
+
+.status-badge.rejected {
+    background-color: var(--red-100);
+    color: var(--red-800);
+}
+
+.dark .status-badge.rejected {
+    background-color: var(--red-900);
+    color: var(--red-100);
+}
+
+/* Utility Classes */
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.whitespace-nowrap {
+    white-space: nowrap;
+}
+
+.text-right {
+    text-align: right;
+}
