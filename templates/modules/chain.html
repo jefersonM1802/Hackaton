@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FinanSight - Integridad Digital</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                        "primary-dark": "#0A2A4E",
+                        "primary-bright": "#007BFF",
+                        "primary-light": "#E6F2FF",
+                        "text-light": "#FFFFFF",
+                        "text-dark": "#111418",
+                        "text-muted": "#60758a",
+                        "text-muted-dark": "#94a3b8",
+                        "border-light": "#dbe0e6",
+                        "border-dark": "#334155",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1e293b",
+                        "success": "#28A745"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <!-- TopNavBar -->
+            <header
+                class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 py-3 bg-card-light dark:bg-card-dark sticky top-0 z-10">
+                <div class="flex items-center gap-4 text-text-dark dark:text-text-light">
+                    <span class="material-symbols-outlined text-primary-bright text-3xl">verified</span>
+                    <h2 class="text-text-dark dark:text-text-light text-xl font-bold leading-tight tracking-[-0.015em]">
+                        FinanSight</h2>
+                </div>
+                <div class="hidden md:flex flex-1 justify-center gap-8">
+                    <div class="flex items-center gap-9">
+                        <a class="text-text-muted dark:text-text-muted-dark hover:text-primary-bright dark:hover:text-primary-light text-sm font-medium leading-normal"
+                            href="#">Dashboard</a>
+                        <a class="text-text-muted dark:text-text-muted-dark hover:text-primary-bright dark:hover:text-primary-light text-sm font-medium leading-normal"
+                            href="#">Créditos</a>
+                        <a class="text-primary-bright dark:text-primary-light text-sm font-bold leading-normal"
+                            href="#">Integridad Digital</a>
+                        <a class="text-text-muted dark:text-text-muted-dark hover:text-primary-bright dark:hover:text-primary-light text-sm font-medium leading-normal"
+                            href="#">Reportes</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="flex gap-2">
+                        <button
+                            class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-background-light dark:bg-background-dark text-text-muted dark:text-text-muted-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+                            <span class="material-symbols-outlined text-xl">notifications</span>
+                        </button>
+                        <button
+                            class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-background-light dark:bg-background-dark text-text-muted dark:text-text-muted-dark hover:bg-primary/10 dark:hover:bg-primary/20">
+                            <span class="material-symbols-outlined text-xl">settings</span>
+                        </button>
+                    </div>
+                    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                        data-alt="Avatar de usuario"
+                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDGbVvFghv-3z2Eb_zROwuTZ-iL-HiBiewpC0X-64Lx8crJASNivIvLwZYEVHnJqJsYqHu0LUEae2gEDdX6bK2usVjtsRnhxu5kZb9wf-t8tvuFMd1_Z4MZhTmNjJFmF13hcRH4GoSIZ35s7KAw8bESgzGweyPJcUWdbanBW8bgyIh63LNmAyK4YFtDhy_0GCB04Kenonbcbiiaf119kaIXPT7EEUpdPapXiyJdJ3pDsEmWr5yLd7qswdzqi3OlinXV-2ZilKl3O2g");'>
+                    </div>
+                </div>
+            </header>
+            <main class="flex flex-1 justify-center py-5 sm:py-8 px-4 sm:px-6 lg:px-8">
+                <div class="layout-content-container flex flex-col w-full max-w-6xl flex-1 gap-6">
+                    <!-- PageHeading -->
+                    <div class="flex flex-wrap justify-between items-center gap-4">
+                        <div class="flex flex-col gap-2">
+                            <h1
+                                class="text-primary-dark dark:text-text-light text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
+                                Integridad Digital (Blockchain)</h1>
+                            <p
+                                class="text-text-muted dark:text-text-muted-dark text-base font-normal leading-normal max-w-2xl">
+                                Aquí puedes ver todos tus documentos registrados en la blockchain, garantizando su
+                                inmutabilidad y seguridad.
+                            </p>
+                        </div>
+                        <button
+                            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary-bright text-white text-sm font-bold leading-normal tracking-[0.015em] gap-2 hover:bg-primary-bright/90 transition-colors">
+                            <span class="material-symbols-outlined">add_circle</span>
+                            <span class="truncate">Verificar Nuevo Documento</span>
+                        </button>
+                    </div>
+                    <!-- Stats -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div
+                            class="flex flex-1 flex-col gap-2 rounded-lg p-6 border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark">
+                            <p class="text-text-muted dark:text-text-muted-dark text-base font-medium leading-normal">
+                                Total de Documentos Verificados</p>
+                            <p
+                                class="text-primary-dark dark:text-text-light tracking-light text-3xl font-bold leading-tight">
+                                1,234</p>
+                        </div>
+                        <div
+                            class="flex flex-1 flex-col gap-2 rounded-lg p-6 border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark">
+                            <p class="text-text-muted dark:text-text-muted-dark text-base font-medium leading-normal">
+                                Última Verificación</p>
+                            <p
+                                class="text-primary-dark dark:text-text-light tracking-light text-3xl font-bold leading-tight">
+                                Hoy, 10:45 AM</p>
+                        </div>
+                    </div>
+                    <!-- Content Section -->
+                    <div
+                        class="flex flex-col gap-4 rounded-lg border border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark p-4 sm:p-6">
+                        <!-- SectionHeader -->
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                            <h2
+                                class="text-primary-dark dark:text-text-light text-xl md:text-[22px] font-bold leading-tight tracking-[-0.015em]">
+                                Certificados de Integridad</h2>
+                            <!-- SearchBar -->
+                            <div class="w-full sm:w-auto sm:max-w-xs">
+                                <label class="flex flex-col min-w-40 h-11 w-full">
+                                    <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+                                        <div
+                                            class="text-text-muted dark:text-text-muted-dark flex bg-background-light dark:bg-background-dark items-center justify-center pl-3.5 rounded-l-lg border-y border-l border-border-light dark:border-border-dark">
+                                            <span class="material-symbols-outlined text-xl">search</span>
+                                        </div>
+                                        <input
+                                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-text-dark dark:text-text-light focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:border-primary/50 h-full placeholder:text-text-muted dark:placeholder:text-text-muted-dark pl-2 text-sm font-normal leading-normal"
+                                            placeholder="Buscar por nombre o hash..." value="" />
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- Documents Table -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="border-b border-border-light dark:border-border-dark">
+                                    <tr>
+                                        <th class="p-3 text-sm font-semibold text-text-muted dark:text-text-muted-dark">
+                                            Documento</th>
+                                        <th
+                                            class="p-3 text-sm font-semibold text-text-muted dark:text-text-muted-dark hidden md:table-cell">
+                                            Hash Blockchain</th>
+                                        <th
+                                            class="p-3 text-sm font-semibold text-text-muted dark:text-text-muted-dark hidden sm:table-cell">
+                                            Estado</th>
+                                        <th
+                                            class="p-3 text-sm font-semibold text-text-muted dark:text-text-muted-dark text-right">
+                                            Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-border-light dark:border-border-dark">
+                                        <td class="p-3 align-top">
+                                            <div class="flex items-center gap-3">
+                                                <div
+                                                    class="bg-primary-light dark:bg-primary/20 text-primary-bright dark:text-primary-light rounded-lg flex items-center justify-center size-10">
+                                                    <span class="material-symbols-outlined">description</span>
+                                                </div>
+                                                <div>
+                                                    <p class="font-semibold text-text-dark dark:text-text-light">
+                                                        Factura_Proveedor_001.pdf</p>
+                                                    <p class="text-sm text-text-muted dark:text-text-muted-dark">
+                                                        23/10/2023</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="p-3 align-top hidden md:table-cell">
+                                            <div class="flex items-center gap-2">
+                                                <p class="font-mono text-sm text-text-muted dark:text-text-muted-dark">
+                                                    0x4a2e...f8b3</p>
+                                                <button
+                                                    class="text-text-muted dark:text-text-muted-dark hover:text-primary-bright dark:hover:text-primary-light"><span
+                                                        class="material-symbols-outlined text-base">content_copy</span></button>
+                                            </div>
+                                        </td>
+                                        <td class="p-3 align-top hidden sm:table-cell">
+                                            <div
+                                                class="inline-flex items-center gap-1.5 rounded-full bg-success/10 text-success px-2.5 py-1 text-xs font-medium">
+                                                <span class="material-symbols-outlined text-sm">verified</span>
+                                                <span>Verificado - Sin Alteraciones</span>
+                                            </div>
+                                        </td>
+                                        <td class="p-3 align-top text-right">
+                                            <button
+                                                class="flex ml-auto cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light text-xs font-bold leading-normal tracking-[0.015em] border border-border-light dark:border-border-dark hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                <span class="truncate">Ver Certificado</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-border-light dark:border-border-dark">
+                                        <td class="p-3 align-top">
+                                            <div class="flex items-center gap-3">
+                                                <div
+                                                    class="bg-primary-light dark:bg-primary/20 text-primary-bright dark:text-primary-light rounded-lg flex items-center justify-center size-10">
+                                                    <span class="material-symbols-outlined">description</span>
+                                                </div>
+                                                <div>
+                                                    <p class="font-semibold text-text-dark dark:text-text-light">
+                                                        Contrato_Alquiler_Local.docx</p>
+                                                    <p class="text-sm text-text-muted dark:text-text-muted-dark">
+                                                        15/10/2023</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="p-3 align-top hidden md:table-cell">
+                                            <div class="flex items-center gap-2">
+                                                <p class="font-mono text-sm text-text-muted dark:text-text-muted-dark">
+                                                    0x9d1c...a5e7</p>
+                                                <button
+                                                    class="text-text-muted dark:text-text-muted-dark hover:text-primary-bright dark:hover:text-primary-light"><span
+                                                        class="material-symbols-outlined text-base">content_copy</span></button>
+                                            </div>
+                                        </td>
+                                        <td class="p-3 align-top hidden sm:table-cell">
+                                            <div
+                                                class="inline-flex items-center gap-1.5 rounded-full bg-success/10 text-success px-2.5 py-1 text-xs font-medium">
+                                                <span class="material-symbols-outlined text-sm">verified</span>
+                                                <span>Verificado - Sin Alteraciones</span>
+                                            </div>
+                                        </td>
+                                        <td class="p-3 align-top text-right">
+                                            <button
+                                                class="flex ml-auto cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light text-xs font-bold leading-normal tracking-[0.015em] border border-border-light dark:border-border-dark hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                <span class="truncate">Ver Certificado</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b border-border-light dark:border-border-dark">
+                                        <td class="p-3 align-top">
+                                            <div class="flex items-center gap-3">
+                                                <div
+                                                    class="bg-primary-light dark:bg-primary/20 text-primary-bright dark:text-primary-light rounded-lg flex items-center justify-center size-10">
+                                                    <span class="material-symbols-outlined">description</span>
+                                                </div>
+                                                <div>
+                                                    <p class="font-semibold text-text-dark dark:text-text-light">
+                                                        Boleta_Venta_0054.pdf</p>
+                                                    <p class="text-sm text-text-muted dark:text-text-muted-dark">
+                                                        05/10/2023</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="p-3 align-top hidden md:table-cell">
+                                            <div class="flex items-center gap-2">
+                                                <p class="font-mono text-sm text-text-muted dark:text-text-muted-dark">
+                                                    0xb7e8...1c2d</p>
+                                                <button
+                                                    class="text-text-muted dark:text-text-muted-dark hover:text-primary-bright dark:hover:text-primary-light"><span
+                                                        class="material-symbols-outlined text-base">content_copy</span></button>
+                                            </div>
+                                        </td>
+                                        <td class="p-3 align-top hidden sm:table-cell">
+                                            <div
+                                                class="inline-flex items-center gap-1.5 rounded-full bg-success/10 text-success px-2.5 py-1 text-xs font-medium">
+                                                <span class="material-symbols-outlined text-sm">verified</span>
+                                                <span>Verificado - Sin Alteraciones</span>
+                                            </div>
+                                        </td>
+                                        <td class="p-3 align-top text-right">
+                                            <button
+                                                class="flex ml-auto cursor-pointer items-center justify-center overflow-hidden rounded-lg h-9 px-3 bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light text-xs font-bold leading-normal tracking-[0.015em] border border-border-light dark:border-border-dark hover:bg-gray-100 dark:hover:bg-gray-700">
+                                                <span class="truncate">Ver Certificado</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
