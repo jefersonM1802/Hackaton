@@ -1,28 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Login</title>
+    <meta charset="UTF-8">
+    <title>Login • FinanSight</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
 
-<h2>Iniciar sesión</h2>
+<body class="bg-gray-100">
 
-<form method="POST">
-    <label>Correo:</label>
-    <input type="email" name="correo" required>
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white shadow-xl rounded-2xl max-w-5xl w-full grid grid-cols-1 lg:grid-cols-2">
 
-    <br><br>
+            <!-- Imagen izquierda -->
+            <div class="hidden lg:block">
+                <img src="/static/login-img.jpg"
+                     class="w-full h-full object-cover rounded-l-2xl"
+                     alt="imagen login">
+            </div>
 
-    <label>Contraseña:</label>
-    <input type="password" name="password" required>
+            <!-- Formulario derecho -->
+            <div class="p-10">
 
-    <br><br>
+                <!-- Logo y título -->
+                <div class="mb-6">
+                    <h1 class="text-2xl font-bold text-blue-700">FinanSight</h1>
+                    <h2 class="text-3xl font-extrabold text-gray-800 mt-2">Inicia Sesión en tu Cuenta</h2>
+                    <p class="text-gray-500 text-sm mt-1">Gestiona las finanzas de tu negocio</p>
+                </div>
 
-    <button type="submit">Ingresar</button>
-</form>
+                <!-- FORMULARIO -->
+                <form method="POST" class="space-y-4">
 
-<br>
-<a href="/registro">Registrarse</a>
+                    <!-- Correo -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
+                        <div class="flex items-center border border-gray-300 rounded-lg bg-white px-3 py-2">
+                            <span class="material-icons-outlined text-gray-500 mr-2">mail</span>
+                            <input type="email" name="correo"
+                                   placeholder="Ingresa tu correo"
+                                   required
+                                   class="w-full outline-none text-gray-700">
+                        </div>
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+                        <div class="flex items-center border border-gray-300 rounded-lg bg-white px-3 py-2">
+                            <span class="material-icons-outlined text-gray-500 mr-2">lock</span>
+                            <input type="password" name="password"
+                                   placeholder="Ingresa tu contraseña"
+                                   required
+                                   class="w-full outline-none text-gray-700">
+                        </div>
+
+                        <a href="#" class="text-blue-600 text-sm float-right mt-1 hover:underline">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+                    </div>
+
+                    <!-- Botón -->
+                    <button 
+                        type="submit"
+                        class="w-full bg-blue-700 hover:bg-blue-800 transition text-white py-3 rounded-lg font-semibold text-lg">
+                        Iniciar Sesión
+                    </button>
+                </form>
+
+                <!-- Enlace crear cuenta -->
+                <p class="text-center text-gray-600 text-sm mt-5">
+                    ¿Aún no tienes una cuenta?
+                    <a href="/registro" class="text-blue-700 font-semibold hover:underline">Crear cuenta</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
