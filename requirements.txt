@@ -1,29 +1,31 @@
 # --- CORE DEL SERVIDOR (Flask) ---
-Flask==3.0.0
-Werkzeug==3.0.1
-python-dotenv==1.0.0        # Para gestionar claves secretas (.env)
+Flask>=3.0.0
+Werkzeug>=3.0.1
+python-dotenv>=1.0.0
 
 # --- BASE DE DATOS (ORM) ---
-Flask-SQLAlchemy==3.1.1
-SQLAlchemy==2.0.23
+# Aquí estaba el error grave. Usamos >= para traer la versión compatible con Py3.13
+Flask-SQLAlchemy>=3.1.1
+SQLAlchemy>=2.0.36
 
 # --- AUTENTICACIÓN Y SEGURIDAD ---
-Flask-Login==0.6.3
-email-validator==2.1.0.post1 # Para validar correos reales en registro
+Flask-Login>=0.6.3
+email-validator>=2.1.0
 
-# --- INTELIGENCIA ARTIFICIAL (Gemini & Imágenes) ---
-google-generativeai>=0.4.0   # SDK oficial de Gemini
-Pillow>=10.1.0               # Procesamiento de imágenes (Recibos/Facturas)
+# --- INTELIGENCIA ARTIFICIAL ---
+google-generativeai>=0.4.0
+Pillow>=11.0.0               # Actualizado para evitar error de compilación
 
-# --- CIENCIA DE DATOS Y FINANZAS (Pandas) ---
-pandas>=2.1.0                # Cálculos financieros y proyecciones
-openpyxl==3.1.2              # Motor para leer/escribir Excel
-numpy>=1.26.0                # Necesario para cálculos matemáticos de Pandas
+# --- CIENCIA DE DATOS Y FINANZAS ---
+# Quitamos los == para que pip busque los binarios compatibles con Mac M1/M2/M3
+pandas>=2.2.0
+openpyxl>=3.1.2
+numpy>=1.26.0
 
 # --- REPORTES Y PDFs ---
-WeasyPrint==60.1             # Para convertir HTML a PDF (Reportes bonitos)
-# Nota para Windows: WeasyPrint a veces requiere instalar GTK3 por separado.
-# Si da problemas, comenten la línea de arriba y usen solo Excel.
+WeasyPrint>=60.1
+# OJO: WeasyPrint en Mac requiere instalar librerías externas.
+# Si te falla, comenta la línea de arriba y usa solo Excel por ahora.
 
 # --- UTILIDADES ---
-requests==2.31.0             # Para peticiones HTTP externas (si fueran necesarias)
+requests>=2.31.0        # Para peticiones HTTP externas (si fueran necesarias)
