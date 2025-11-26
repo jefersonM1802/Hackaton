@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html class="light" lang="es">
 
 <head>
@@ -7,13 +6,12 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>FinanSight - Validador de Comprobantes</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap"
-        rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
+
     <script>
         tailwind.config = {
             darkMode: "class",
@@ -26,17 +24,12 @@
                     },
                     fontFamily: {
                         "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
+                    }
                 },
             },
         }
     </script>
+
     <style>
         .material-symbols-outlined {
             font-variation-settings:
@@ -49,189 +42,290 @@
 </head>
 
 <body class="font-display bg-background-light dark:bg-background-dark">
-    <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-        <!-- TopNavBar -->
-        <header
-            class="w-full bg-white dark:bg-background-dark/50 border-b border-gray-200/80 dark:border-white/10 sticky top-0 z-10 backdrop-blur-sm">
-            <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between whitespace-nowrap h-16">
-                    <div class="flex items-center gap-4 text-gray-800 dark:text-white">
-                        <span class="material-symbols-outlined text-primary text-3xl">grouped_bar_chart</span>
-                        <h2 class="text-gray-800 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">
-                            FinanSight</h2>
-                    </div>
-                    <div class="hidden md:flex flex-1 justify-center items-center gap-9">
-                        <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal"
-                            href="#">Dashboard</a>
-                        <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary text-sm font-medium leading-normal"
-                            href="#">Reportes</a>
-                        <a class="text-primary dark:text-primary text-sm font-bold leading-normal relative" href="#">
-                            Validación
-                            <span class="absolute bottom-[-8px] left-0 w-full h-0.5 bg-primary rounded-full"></span>
-                        </a>
-                    </div>
-                    <div class="flex items-center gap-4">
-                        <button
-                            class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-background-light dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-200/80 dark:hover:bg-white/20">
-                            <span class="material-symbols-outlined text-xl">notifications</span>
-                        </button>
-                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-                            data-alt="User avatar"
-                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDAXDCLRIA_0jciVZoz5EBbaPyyxWeb2cPT94uwXDHtEqQrkfG4rdUJHkjhRSAVdCjtqTtE_WRzR-CPrUY3udAxGcemNWeJ0YAzLzEhpq8wvzsFp7nJlzp_GGkqf-VJYB0IO78xGmlHPr9BjRPoDLCNxiLua2ZP04OOonE84rtlT6Y5clfAwyry892fqOz1qFvA42Lhv7CPpuOdrhnTWUkkgDu3mX8FShGPZXyXEzh7aMobbZpp6Q7MpzkdIyvuAbLGCbwja9KPDl4");'>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <main class="w-full max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
-            <div class="flex flex-col gap-10">
-                <!-- PageHeading -->
-                <div class="flex flex-wrap justify-between gap-3">
-                    <div class="flex flex-col gap-2">
-                        <p class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
-                            Validador de Comprobantes</p>
-                        <p class="text-gray-500 dark:text-gray-400 text-base font-normal leading-normal">Verifica la
-                            validez de tus facturas y boletas de venta directamente con la SUNAT.</p>
-                    </div>
-                </div>
-                <!-- Search Bar Section -->
-                <div class="flex flex-col md:flex-row items-center gap-3">
-                    <div class="w-full flex-1">
-                        <label class="flex flex-col w-full">
-                            <div class="flex w-full flex-1 items-stretch rounded-lg h-12 shadow-sm dark:shadow-none">
-                                <div
-                                    class="text-gray-500 dark:text-gray-400 flex bg-white dark:bg-background-dark items-center justify-center pl-4 rounded-l-lg border border-gray-200 dark:border-white/20 border-r-0">
-                                    <span class="material-symbols-outlined text-2xl">search</span>
-                                </div>
-                                <input
-                                    class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-r-lg text-gray-800 dark:text-gray-200 focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-gray-200 dark:border-white/20 bg-white dark:bg-background-dark focus:border-primary/50 h-full placeholder:text-gray-400 dark:placeholder:text-gray-500 px-4 border-l-0 text-base font-normal leading-normal"
-                                    placeholder="Ingrese el número de la factura o boleta" value="" />
-                            </div>
-                        </label>
-                    </div>
-                    <div class="w-full md:w-auto">
-                        <button
-                            class="flex w-full md:w-auto min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary hover:bg-primary/90 text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] shadow-sm">
-                            <span class="truncate">Validar</span>
-                        </button>
-                    </div>
-                </div>
-                <!-- Results Section / Empty State -->
-                <div class="flex flex-col gap-8">
-                    <!-- Result Card - Valid -->
-                    <div
-                        class="bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-white/20 shadow-sm overflow-hidden">
-                        <div class="p-6 flex flex-col md:flex-row items-start gap-6">
-                            <div class="flex items-center gap-4 w-full md:w-auto">
-                                <div
-                                    class="flex items-center justify-center size-12 rounded-full bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400">
-                                    <span class="material-symbols-outlined text-3xl">verified</span>
-                                </div>
-                                <div>
-                                    <span
-                                        class="px-3 py-1 text-sm font-bold text-green-700 dark:text-green-300 bg-green-100 dark:bg-green-500/20 rounded-full">VÁLIDO</span>
-                                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">El comprobante es
-                                        auténtico.</p>
-                                </div>
-                            </div>
-                            <div
-                                class="w-full flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-gray-200 dark:border-white/10 md:pl-6">
-                                <div>
-                                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">N° de Comprobante
-                                    </p>
-                                    <p class="text-base font-semibold text-gray-800 dark:text-gray-200">F001-0012345</p>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">Fecha de Emisión</p>
-                                    <p class="text-base font-semibold text-gray-800 dark:text-gray-200">15/07/2024</p>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">RUC Emisor</p>
-                                    <p class="text-base font-semibold text-gray-800 dark:text-gray-200">20123456789</p>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">Razón Social</p>
-                                    <p class="text-base font-semibold text-gray-800 dark:text-gray-200 truncate">
-                                        Tecnología Andina S.A.C.</p>
-                                </div>
-                                <div class="col-span-1 sm:col-span-2 md:col-span-1">
-                                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">Monto Total</p>
-                                    <p class="text-base font-semibold text-gray-800 dark:text-gray-200">S/ 1,250.00</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-background-light dark:bg-white/5 px-6 py-3 border-t border-gray-200 dark:border-white/10 flex items-center gap-2">
-                            <span
-                                class="material-symbols-outlined text-sm text-gray-500 dark:text-gray-400">shield</span>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">Verificación realizada con la plataforma
-                                oficial de SUNAT.</p>
-                        </div>
-                    </div>
-                    <!-- Result Card - Annulled -->
-                    <div
-                        class="bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-white/20 shadow-sm overflow-hidden">
-                        <div class="p-6 flex flex-col md:flex-row items-start gap-6">
-                            <div class="flex items-center gap-4 w-full md:w-auto">
-                                <div
-                                    class="flex items-center justify-center size-12 rounded-full bg-yellow-100 dark:bg-yellow-500/20 text-yellow-600 dark:text-yellow-400">
-                                    <span class="material-symbols-outlined text-3xl">report</span>
-                                </div>
-                                <div>
-                                    <span
-                                        class="px-3 py-1 text-sm font-bold text-yellow-700 dark:text-yellow-300 bg-yellow-100 dark:bg-yellow-500/20 rounded-full">ANULADO</span>
-                                    <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">El comprobante fue dado de
-                                        baja.</p>
-                                </div>
-                            </div>
-                            <div
-                                class="w-full flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4 pt-4 md:pt-0 border-t md:border-t-0 md:border-l border-gray-200 dark:border-white/10 md:pl-6">
-                                <div>
-                                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">N° de Comprobante
-                                    </p>
-                                    <p class="text-base font-semibold text-gray-800 dark:text-gray-200">B002-0054321</p>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">Fecha de Emisión</p>
-                                    <p class="text-base font-semibold text-gray-800 dark:text-gray-200">12/07/2024</p>
-                                </div>
-                                <div>
-                                    <p class="text-xs font-medium text-gray-500 dark:text-gray-400">RUC Emisor</p>
-                                    <p class="text-base font-semibold text-gray-800 dark:text-gray-200">10987654321</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="bg-background-light dark:bg-white/5 px-6 py-3 border-t border-gray-200 dark:border-white/10 flex items-center gap-2">
-                            <span
-                                class="material-symbols-outlined text-sm text-gray-500 dark:text-gray-400">shield</span>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">Verificación realizada con la plataforma
-                                oficial de SUNAT.</p>
-                        </div>
-                    </div>
-                    <!-- Empty State -->
-                    <div
-                        class="flex flex-col px-4 py-16 items-center justify-center bg-white dark:bg-background-dark border-2 border-dashed border-gray-200 dark:border-white/20 rounded-xl">
-                        <div class="flex flex-col items-center gap-5 text-center">
-                            <div
-                                class="flex items-center justify-center size-16 bg-primary/10 dark:bg-primary/20 rounded-full text-primary">
-                                <span class="material-symbols-outlined text-4xl">search_check</span>
-                            </div>
-                            <div class="flex max-w-md flex-col items-center gap-2">
-                                <p
-                                    class="text-gray-800 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">
-                                    Ingresa un número para comenzar</p>
-                                <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">
-                                    Realiza una búsqueda para ver el estado de validación de tu comprobante electrónico
-                                    aquí.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-</body>
 
+<div class="relative flex min-h-screen w-full">
+
+    <!-- ========================================================= -->
+    <!--                     BARRA LATERAL                         -->
+    <!-- ========================================================= -->
+
+    <aside
+        class="flex-shrink-0 w-64 bg-white dark:bg-background-dark border-r border-gray-200 dark:border-gray-800 flex flex-col">
+
+        <!-- Logo -->
+        <div class="p-4 flex items-center gap-3 mb-6">
+            <div class="bg-primary p-2 rounded-lg">
+                <span class="material-symbols-outlined text-white">insights</span>
+            </div>
+            <h1 class="text-xl font-bold text-gray-800 dark:text-gray-200">FinanSight</h1>
+        </div>
+
+        <nav class="flex flex-col gap-1 flex-grow px-4">
+
+            <!-- INICIO -->
+            <a href="{{ url_for('dashboard_home') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg
+               {% if request.path.startswith('/dashboard') %}
+                   bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300
+               {% else %}
+                   text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800
+               {% endif %}">
+                <span class="material-symbols-outlined">home</span>
+                <p class="text-sm font-medium">Inicio</p>
+            </a>
+
+            <!-- DOCUMENTOS -->
+            <a href="{{ url_for('documentos_view') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg
+               {% if request.path.startswith('/documentos') %}
+                   bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300
+               {% else %}
+                   text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800
+               {% endif %}">
+                <span class="material-symbols-outlined">description</span>
+                <p class="text-sm font-medium">Documentos</p>
+            </a>
+
+            <!-- IA -->
+            <a href="{{ url_for('ia_analisis_view') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg
+               {% if request.path.startswith('/ia') %}
+                   bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300
+               {% else %}
+                   text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800
+               {% endif %}">
+                <span class="material-symbols-outlined">psychology</span>
+                <p class="text-sm font-medium">IA – Análisis</p>
+            </a>
+
+            <!-- VALIDACIÓN (ACTIVO AQUÍ) -->
+            <a href="{{ url_for('validacion_view') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg
+               bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300">
+                <span class="material-symbols-outlined">verified</span>
+                <p class="text-sm font-medium">Validación</p>
+            </a>
+
+            <!-- INDICADORES -->
+            <a href="{{ url_for('indicadores_view') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg
+               {% if request.path.startswith('/indicadores') %}
+                   bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300
+               {% else %}
+                   text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800
+               {% endif %}">
+                <span class="material-symbols-outlined">pie_chart</span>
+                <p class="text-sm font-medium">Indicadores</p>
+            </a>
+
+            <!-- RIESGOS -->
+            <a href="{{ url_for('riesgos_view') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg
+               {% if request.path.startswith('/riesgos') %}
+                   bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300
+               {% else %}
+                   text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800
+               {% endif %}">
+                <span class="material-symbols-outlined">security</span>
+                <p class="text-sm font-medium">Riesgos</p>
+            </a>
+
+            <!-- PROYECCIONES -->
+            <a href="{{ url_for('proyecciones_view') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg
+               {% if request.path.startswith('/proyecciones') %}
+                   bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300
+               {% else %}
+                   text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800
+               {% endif %}">
+                <span class="material-symbols-outlined">trending_up</span>
+                <p class="text-sm font-medium">Proyecciones</p>
+            </a>
+
+            <!-- REPORTES -->
+            <a href="{{ url_for('reportes_view') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg
+               {% if request.path.startswith('/reportes') %}
+                   bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300
+               {% else %}
+                   text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800
+               {% endif %}">
+                <span class="material-symbols-outlined">bar_chart</span>
+                <p class="text-sm font-medium">Reportes</p>
+            </a>
+
+            <!-- BLOCKCHAIN -->
+            <a href="{{ url_for('blockchain_view') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg
+               {% if request.path.startswith('/blockchain') %}
+                   bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-300
+               {% else %}
+                   text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800
+               {% endif %}">
+                <span class="material-symbols-outlined">hub</span>
+                <p class="text-sm font-medium">Blockchain</p>
+            </a>
+        </nav>
+
+        <!-- FOOTER OPTIONS -->
+        <div class="p-4 mt-auto flex flex-col gap-1">
+            <a href="{{ url_for('perfil_view') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
+                <span class="material-symbols-outlined">person</span>
+                <p class="text-sm font-medium">Perfil</p>
+            </a>
+
+            <a href="{{ url_for('configuracion_view') }}"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
+                <span class="material-symbols-outlined">settings</span>
+                <p class="text-sm font-medium">Configuración</p>
+            </a>
+        </div>
+
+    </aside>
+
+    <!-- ========================================================= -->
+    <!--                     CONTENIDO PRINCIPAL                   -->
+    <!-- ========================================================= -->
+
+    <main class="flex-1 p-10">
+
+        <div class="max-w-screen-lg mx-auto flex flex-col gap-10">
+
+            <!-- Page Heading -->
+            <div class="flex flex-col gap-2">
+                <p class="text-gray-900 dark:text-white text-4xl font-black">Validador de Comprobantes</p>
+                <p class="text-gray-500 dark:text-gray-400">
+                    Verifica facturas y boletas directamente con la SUNAT.
+                </p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="flex flex-col md:flex-row items-center gap-3">
+                <div class="w-full flex-1">
+                    <label class="flex flex-col w-full">
+                        <div class="flex w-full items-center rounded-lg h-12 shadow-sm bg-white dark:bg-background-dark border border-gray-300 dark:border-white/20">
+                            <span class="material-symbols-outlined text-gray-500 px-4 text-2xl">search</span>
+                            <input
+                                class="flex-1 bg-transparent outline-none px-3 text-gray-800 dark:text-gray-200"
+                                placeholder="Ingrese el número del comprobante">
+                        </div>
+                    </label>
+                </div>
+
+                <button
+                    class="h-12 px-6 bg-primary hover:bg-primary/90 text-white rounded-lg font-bold">
+                    Validar
+                </button>
+            </div>
+
+            <!-- Resultados (Tu diseño original se mantiene igual) -->
+            <div class="flex flex-col gap-8">
+
+                <!-- Tarjeta Válido -->
+                <div class="bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-white/20 shadow-sm">
+                    <div class="p-6 flex flex-col md:flex-row items-start gap-6">
+
+                        <div class="flex items-center gap-4">
+                            <div class="size-12 rounded-full bg-green-100 dark:bg-green-500/20 flex items-center justify-center text-green-600 dark:text-green-400">
+                                <span class="material-symbols-outlined text-3xl">verified</span>
+                            </div>
+                            <div>
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-300 rounded-full font-bold text-sm">VÁLIDO</span>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">El comprobante es auténtico.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 border-t md:border-t-0 md:border-l pt-4 md:pt-0 md:pl-6 border-gray-200 dark:border-white/10">
+                            <div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">N° Comprobante</p>
+                                <p class="font-semibold text-gray-800 dark:text-gray-200">F001-0012345</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Fecha</p>
+                                <p class="font-semibold text-gray-800 dark:text-gray-200">15/07/2024</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">RUC Emisor</p>
+                                <p class="font-semibold text-gray-800 dark:text-gray-200">20123456789</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="px-6 py-3 bg-background-light dark:bg-white/5 border-t border-gray-200 dark:border-white/10 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-gray-500 dark:text-gray-400">shield</span>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">
+                            Verificación mediante plataforma de SUNAT.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Anulado -->
+                <div class="bg-white dark:bg-background-dark rounded-xl border border-gray-200 dark:border-white/20 shadow-sm">
+                    <div class="p-6 flex flex-col md:flex-row items-start gap-6">
+
+                        <div class="flex items-center gap-4">
+                            <div class="size-12 rounded-full bg-yellow-100 dark:bg-yellow-500/20 flex items-center justify-center text-yellow-600 dark:text-yellow-400">
+                                <span class="material-symbols-outlined text-3xl">report</span>
+                            </div>
+                            <div>
+                                <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-500/20 text-yellow-700 dark:text-yellow-300 rounded-full font-bold text-sm">ANULADO</span>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">El comprobante fue dado de baja.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 border-t md:border-t-0 md:border-l pt-4 md:pt-0 md:pl-6 border-gray-200 dark:border-white/10">
+                            <div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">N° Comprobante</p>
+                                <p class="font-semibold text-gray-800 dark:text-gray-200">B002-0054321</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">Fecha</p>
+                                <p class="font-semibold text-gray-800 dark:text-gray-200">12/07/2024</p>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">RUC Emisor</p>
+                                <p class="font-semibold text-gray-800 dark:text-gray-200">10987654321</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="px-6 py-3 bg-background-light dark:bg-white/5 border-t border-gray-200 dark:border-white/10 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-sm text-gray-500 dark:text-gray-400">shield</span>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">
+                            Verificación SUNAT.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Estado vacío -->
+                <div
+                    class="flex flex-col px-4 py-16 items-center justify-center bg-white dark:bg-background-dark border-2 border-dashed border-gray-200 dark:border-white/20 rounded-xl">
+                    <div class="flex flex-col items-center gap-5 text-center">
+
+                        <div class="size-16 rounded-full bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+                            <span class="material-symbols-outlined text-4xl">search_check</span>
+                        </div>
+
+                        <div class="max-w-md flex flex-col items-center gap-2">
+                            <p class="text-gray-800 dark:text-white text-lg font-bold">Ingresa un número para comenzar</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm">
+                                Realiza una búsqueda para verificar el estado del comprobante.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
 </html>
