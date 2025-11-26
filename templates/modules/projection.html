@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FinanSight - Proyección y Simulación</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d7ff2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101922",
+                        "primary-dark": "#1d2939",
+                        "secondary-dark": "#364152",
+                        "text-light": "#111418",
+                        "text-dark": "#f8fafc",
+                        "text-muted-light": "#60758a",
+                        "text-muted-dark": "#94a3b8",
+                        "border-light": "#dbe0e6",
+                        "border-dark": "#334155"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <header
+                class="sticky top-0 z-50 w-full border-b border-border-light dark:border-border-dark bg-white/80 dark:bg-primary-dark/80 backdrop-blur-sm">
+                <div
+                    class="flex items-center justify-between whitespace-nowrap px-4 sm:px-6 lg:px-8 h-16 max-w-7xl mx-auto">
+                    <div class="flex items-center gap-4 text-text-light dark:text-text-dark">
+                        <span class="material-symbols-outlined text-primary text-3xl">insights</span>
+                        <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">FinanSight</h2>
+                    </div>
+                    <div class="hidden md:flex flex-1 justify-center gap-8">
+                        <div class="flex items-center gap-9">
+                            <a class="text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-white text-sm font-medium leading-normal transition-colors"
+                                href="#">Dashboard</a>
+                            <a class="text-primary dark:text-white text-sm font-bold leading-normal border-b-2 border-primary"
+                                href="#">Projections</a>
+                            <a class="text-text-muted-light dark:text-text-muted-dark hover:text-primary dark:hover:text-white text-sm font-medium leading-normal transition-colors"
+                                href="#">Reports</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button
+                            class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-background-light dark:bg-secondary-dark text-text-muted-light dark:text-text-muted-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-xl">notifications</span>
+                        </button>
+                        <button
+                            class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-background-light dark:bg-secondary-dark text-text-muted-light dark:text-text-muted-dark hover:bg-primary/10 dark:hover:bg-primary/20 hover:text-primary dark:hover:text-white transition-colors">
+                            <span class="material-symbols-outlined text-xl">help</span>
+                        </button>
+                        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                            data-alt="User avatar image"
+                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDLj67JrhXptTk0ST5CEcQgle7PXRBAMLsdGOpvUn20HBoWlPMn6Q4zt2mNhXrh7s4xZRqkhWqS43ElkQxsNrFN9vyly2aZMRB_3cMgd6hIbQx8-gDhHjmt6pQDU54ka03jms7leqi_10zYt8hs2TyPR7mW1AM6P0rr38DMvNMOlwOWzo5l62n7Jt7ChORFwgWBWjNYzXJKmtvo6eXUfusUnr3dt2wekaOzeCUnLfUJEcSOhuY8KwJQl7CX9VmJhcVcanq1pqBl06c");'>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="flex flex-col gap-8">
+                    <!-- Page Header -->
+                    <div class="flex flex-wrap justify-between items-center gap-4">
+                        <h1 class="text-3xl lg:text-4xl font-black tracking-[-0.033em]">Proyección y Simulación de
+                            Escenarios</h1>
+                        <div
+                            class="flex h-10 w-full sm:w-auto items-center justify-center rounded-lg bg-white dark:bg-primary-dark p-1 border border-border-light dark:border-border-dark">
+                            <label
+                                class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-4 has-[:checked]:bg-primary has-[:checked]:text-white text-text-muted-light dark:text-text-muted-dark text-sm font-medium leading-normal transition-colors">
+                                <span class="truncate">Optimista</span>
+                                <input class="invisible w-0" name="scenario-selector" type="radio" value="Optimista" />
+                            </label>
+                            <label
+                                class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-4 has-[:checked]:bg-primary has-[:checked]:text-white text-text-muted-light dark:text-text-muted-dark text-sm font-medium leading-normal transition-colors">
+                                <span class="truncate">Realista</span>
+                                <input checked="" class="invisible w-0" name="scenario-selector" type="radio"
+                                    value="Realista" />
+                            </label>
+                            <label
+                                class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-md px-4 has-[:checked]:bg-primary has-[:checked]:text-white text-text-muted-light dark:text-text-muted-dark text-sm font-medium leading-normal transition-colors">
+                                <span class="truncate">Crítico</span>
+                                <input class="invisible w-0" name="scenario-selector" type="radio" value="Crítico" />
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Key Metrics -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div
+                            class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-primary-dark border border-border-light dark:border-border-dark">
+                            <p
+                                class="text-text-muted-light dark:text-text-muted-dark text-base font-medium leading-normal">
+                                Utilidad Neta Proyectada</p>
+                            <p class="tracking-tight text-3xl font-bold leading-tight">$15,230</p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-primary-dark border border-border-light dark:border-border-dark">
+                            <p
+                                class="text-text-muted-light dark:text-text-muted-dark text-base font-medium leading-normal">
+                                Saldo Final de Caja</p>
+                            <p class="tracking-tight text-3xl font-bold leading-tight">$25,800</p>
+                        </div>
+                        <div
+                            class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-primary-dark border border-border-light dark:border-border-dark">
+                            <p
+                                class="text-text-muted-light dark:text-text-muted-dark text-base font-medium leading-normal">
+                                Punto de Equilibrio</p>
+                            <p class="tracking-tight text-3xl font-bold leading-tight">$8,500</p>
+                        </div>
+                    </div>
+                    <!-- Main Content Grid -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                        <!-- Charts Section -->
+                        <div class="lg:col-span-2 flex flex-col gap-8">
+                            <div
+                                class="rounded-xl bg-white dark:bg-primary-dark border border-border-light dark:border-border-dark p-6 @container">
+                                <div class="flex flex-col items-stretch justify-start gap-4">
+                                    <div class="flex flex-wrap items-center justify-between gap-4">
+                                        <p class="text-lg font-bold leading-tight tracking-[-0.015em]">Proyección de
+                                            Flujo de Caja</p>
+                                        <div
+                                            class="flex items-center gap-2 rounded-lg bg-background-light dark:bg-secondary-dark p-1">
+                                            <button
+                                                class="h-8 min-w-[70px] rounded-md px-3 text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:bg-white/60 dark:hover:bg-primary-dark/60 transition-colors">3
+                                                meses</button>
+                                            <button
+                                                class="h-8 min-w-[70px] rounded-md px-3 text-sm font-medium bg-white dark:bg-primary-dark text-primary dark:text-white shadow-sm">6
+                                                meses</button>
+                                            <button
+                                                class="h-8 min-w-[70px] rounded-md px-3 text-sm font-medium text-text-muted-light dark:text-text-muted-dark hover:bg-white/60 dark:hover:bg-primary-dark/60 transition-colors">12
+                                                meses</button>
+                                        </div>
+                                    </div>
+                                    <div class="w-full bg-center bg-no-repeat aspect-video bg-contain"
+                                        data-alt="Line chart showing projected cash flow with lines for income, expenses, and profit over a 6-month period"
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCn4KdzI9MSooIF2Nce3abRJoqB4BO_dvb-WaHY55qpInShxeBQ_H92bkv_YZKVgC-UDfeu-mnDXKytRX2ZbXP0rD0VxxZYpgxQMzEa4-ZWJzegcxzHchiPawMfn2wMY9BTSP8n217cA49DEgAIsBtekLZvhTOSJEXO7XEXF5jxd3fq63yw40MZgzVOOzpmb3oHXCcGwLyuQDEhJ-tbJE3kD9oSkMWtmXGCc6YgP6dKIhMHf9F9iUqJ3HH17pwZ9bk5bMXOvNJbnOM");'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl bg-white dark:bg-primary-dark border border-border-light dark:border-border-dark p-6 @container">
+                                <div class="flex flex-col items-stretch justify-start gap-4">
+                                    <p class="text-lg font-bold leading-tight tracking-[-0.015em]">Comparativa:
+                                        Escenario Actual vs. Simulación</p>
+                                    <div class="w-full bg-center bg-no-repeat aspect-video bg-contain"
+                                        data-alt="Bar chart comparing current scenario versus simulated scenario for key metrics like projected profit and final cash balance."
+                                        style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAiuEjqtWya6XqHAxHtW6s2-WNK4K3e3oE-c9Wzuprd4O3i_1Pb9uqRj1SvCRYo6phjYd_k8SxmdMcNWHEfJveTFqIo5KrdKySTl8T2aTzfwblFoIaDi7TgOpfBZ2VHtPyMdI55Jpu5jxKY5xIQYcHiWDfjz5kh6k78xp26Tkjuf48uFjSe0RiZgMv9XTdhAQy-b5YZUpTXiwA8M2d_c1rFF7eiCyK8-GCRlLqZjaWtkSgLXXDGZxJHOyv_vMABgmRKJ70lCfDVA8Y");'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Simulation Module -->
+                        <div class="lg:col-span-1 sticky top-24">
+                            <div
+                                class="rounded-xl bg-white dark:bg-primary-dark border border-border-light dark:border-border-dark p-6 flex flex-col gap-6">
+                                <div class="flex items-center gap-3">
+                                    <span class="material-symbols-outlined text-primary text-2xl">model_training</span>
+                                    <h3 class="text-lg font-bold">Simulador de Impacto</h3>
+                                </div>
+                                <div class="flex flex-col gap-4">
+                                    <div>
+                                        <label
+                                            class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark"
+                                            for="sales-adjust">Ajustar Ventas (%)</label>
+                                        <input
+                                            class="mt-1 block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-secondary-dark focus:border-primary focus:ring-primary text-sm"
+                                            id="sales-adjust" placeholder="Ej: 15" type="number" />
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark"
+                                            for="expenses-adjust">Ajustar Gastos (%)</label>
+                                        <input
+                                            class="mt-1 block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-secondary-dark focus:border-primary focus:ring-primary text-sm"
+                                            id="expenses-adjust" placeholder="Ej: 5" type="number" />
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark"
+                                            for="investment-add">Añadir Inversión ($)</label>
+                                        <input
+                                            class="mt-1 block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-secondary-dark focus:border-primary focus:ring-primary text-sm"
+                                            id="investment-add" placeholder="Ej: 5000" type="number" />
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="text-sm font-medium text-text-muted-light dark:text-text-muted-dark"
+                                            for="loan-add">Añadir Deuda ($)</label>
+                                        <input
+                                            class="mt-1 block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-secondary-dark focus:border-primary focus:ring-primary text-sm"
+                                            id="loan-add" placeholder="Ej: 10000" type="number" />
+                                    </div>
+                                </div>
+                                <button
+                                    class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal gap-2 hover:bg-primary/90 transition-colors">
+                                    <span class="material-symbols-outlined text-lg">auto_awesome</span>
+                                    <span class="truncate">Simular Cambios</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
