@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-
+from sqlalchemy import desc
 from config import Config
-from app.models import db, Usuario
+from app.models import *
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -92,7 +92,47 @@ def registro():
 # ================================
 # DASHBOARD HOME
 # ================================
+
+
+# ================================
+# DASHBOARD HOME (CONECTADO A BD)
+# ================================
 @app.route('/dashboard')
+@login_required
+def dashboard_home():
+    # 1. Obtener los últimos INDICADORES (Ingresos, Gastos, etc.)
+    # Buscamos el registro más reciente de este usuario
+    kpi = IndicadorFinanciero.query.filter_by(id_usuario=current_user.id_usuario)\
+        .order_by(desc(IndicadorFinanciero.anio), desc(IndicadorFinanciero.mes))\
+        .first()
+
+    # 2. Obtener el último RIESGO calculado
+    riesgo = Riesgo.query.filter_by(id_usuario=current_user.id_usuario)\
+        .order_by(desc(Riesgo.fecha_registro))\
+        .first()
+
+    # 3. Obtener los últimos 4 DOCUMENTOS subidos
+    docs_recientes = Documento.query.filter_by(id_usuario=current_user.id_usuario)\
+        .order_by(desc(Documento.fecha_subida))\
+        .limit(4)\
+        .all()
+
+    # Si no hay KPIs todavía (usuario nuevo), creamos un objeto vacío para que no de error
+    if not kpi:
+        class DummyKPI:
+            ingresos = 0
+            gastos = 0
+            utilidad = 0
+            flujo = 0
+        kpi = DummyKPI()
+
+    # Renderizar pasando todos los datos
+    return render_template('dashboard/home.html', 
+                           usuario=current_user,
+                           stats=kpi,
+                           riesgo=riesgo,
+                           docs=docs_recientes)
+
 @login_required
 def dashboard_home():
     return render_template('dashboard/home.html', usuario=current_user)
