@@ -1,0 +1,233 @@
+/* Componentes específicos de riesgos */
+.riesgos-score-card {
+    background: var(--riesgos-card-bg);
+    border-radius: 1rem;
+    box-shadow: var(--riesgos-shadow-md);
+    padding: var(--riesgos-spacing-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.riesgos-score-card:hover {
+    box-shadow: var(--riesgos-shadow-lg);
+    transform: translateY(-2px);
+}
+
+.score-circle-riesgos {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto var(--riesgos-spacing-md);
+}
+
+.score-progress-riesgos {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.score-value-riesgos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.score-number-riesgos {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1;
+}
+
+.score-label-riesgos {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.score-excelente {
+    color: var(--score-excelente);
+}
+
+.score-bueno {
+    color: var(--score-bueno);
+}
+
+.score-regular {
+    color: var(--score-regular);
+}
+
+.score-bajo {
+    color: var(--score-bajo);
+}
+
+/* Alertas de riesgos */
+.riesgos-alerta {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--riesgos-border);
+    transition: background-color 0.2s ease;
+}
+
+.riesgos-alerta:hover {
+    background-color: #F8FAFC;
+}
+
+.riesgos-alerta:last-child {
+    border-bottom: none;
+}
+
+.alerta-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    flex-shrink: 0;
+}
+
+.alerta-icono-advertencia {
+    background-color: rgba(242, 201, 76, 0.1);
+    color: var(--score-regular);
+}
+
+.alerta-icono-peligro {
+    background-color: rgba(235, 87, 87, 0.1);
+    color: var(--score-bajo);
+}
+
+.alerta-icono-info {
+    background-color: rgba(47, 128, 237, 0.1);
+    color: var(--score-bueno);
+}
+
+.alerta-contenido {
+    flex: 1;
+}
+
+.alerta-titulo {
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.alerta-descripcion {
+    color: #64748B;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.alerta-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge-media {
+    background-color: rgba(242, 201, 76, 0.1);
+    color: var(--score-regular);
+}
+
+.badge-alta {
+    background-color: rgba(235, 87, 87, 0.1);
+    color: var(--score-bajo);
+}
+
+/* Recomendaciones de riesgos */
+.riesgos-recomendacion-card {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 1rem;
+    box-shadow: var(--riesgos-shadow-lg);
+    padding: var(--riesgos-spacing-lg);
+    color: white;
+}
+
+.recomendacion-item-riesgos {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.recomendacion-item-riesgos:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.recomendacion-item-riesgos:last-child {
+    margin-bottom: 0;
+}
+
+.recomendacion-icono {
+    color: var(--accent);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.recomendacion-contenido h4 {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.recomendacion-contenido p {
+    opacity: 0.9;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+/* Cards de estadísticas de riesgos */
+.riesgos-stats-card {
+    background: var(--riesgos-card-bg);
+    border-radius: 0.75rem;
+    box-shadow: var(--riesgos-shadow-sm);
+    padding: 1.5rem;
+}
+
+.riesgos-stats-titulo {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.riesgos-stats-valor {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1;
+}
+
+.indicador-riesgo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.punto-riesgo {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+}
+
+.riesgo-bajo {
+    background-color: var(--score-excelente);
+}
+
+.riesgo-medio {
+    background-color: var(--score-regular);
+}
+
+.riesgo-alto {
+    background-color: var(--score-bajo);
+}

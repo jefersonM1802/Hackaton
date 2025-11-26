@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>FinanSight - Reportes</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- CSS de Reportes -->
+    <link href="{{ url_for('static', filename='css/reportes/variables.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/reportes/components.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/reportes/reportes.css') }}" rel="stylesheet">
+    
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24
+        }
+    </style>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0A2A4E",
+                        "primary-light": "#4A90E2",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#101922",
+                        "surface-light": "#F7F9FC",
+                        "surface-dark": "#1A2530",
+                        "text-main": "#333333",
+                        "text-main-dark": "#E5E7EB",
+                        "text-secondary": "#6B7280",
+                        "text-secondary-dark": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-text-main-dark">
+    <div class="reportes-container">
+        <!-- Tu contenido HTML de reportes aquí -->
+        <header class="reportes-header">
+            <!-- Navbar existente con clases reportes-* -->
+        </header>
+        
+        <main class="reportes-main">
+            <div class="reportes-content">
+                <!-- Page header -->
+                <div class="reportes-page-header">
+                    <h1 class="reportes-page-title">Historial de Reportes</h1>
+                    <button class="reportes-btn reportes-btn-primary">
+                        <span class="material-symbols-outlined">add_circle</span>
+                        <span class="text-truncate">Generar Nuevo Reporte</span>
+                    </button>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="reportes-filters">
+                    <div class="filters-left">
+                        <button class="reportes-btn reportes-btn-outline">
+                            <span class="material-symbols-outlined text-xl">calendar_today</span>
+                            <span>Filtrar por Fecha</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tabla de reportes -->
+                <div class="reportes-table-container">
+                    <table class="reportes-table">
+                        <!-- Contenido de la tabla -->
+                    </table>
+                </div>
+                
+                <!-- Detalle del reporte -->
+                <div class="reporte-detalle-section">
+                    <div class="reporte-detalle-header">
+                        <h2 class="reporte-detalle-title">Análisis Financiero - Mayo 2024</h2>
+                        <button class="reportes-btn reportes-btn-secondary">
+                            <span class="material-symbols-outlined">picture_as_pdf</span>
+                            <span class="text-truncate">Descargar PDF</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Métricas -->
+                    <div class="reportes-metrics-grid">
+                        <div class="reportes-metric-card">
+                            <h3 class="metric-label">Ingresos Totales</h3>
+                            <p class="metric-value metric-ingresos">$12,450.00</p>
+                        </div>
+                        <!-- Más métricas -->
+                    </div>
+                    
+                    <!-- Gráficos -->
+                    <div class="reportes-charts-grid">
+                        <div class="reportes-chart-card">
+                            <h3 class="chart-title">Ventas vs. Gastos</h3>
+                            <div class="chart-container"></div>
+                        </div>
+                        <!-- Más gráficos -->
+                    </div>
+                    
+                    <!-- Insights -->
+                    <div class="reportes-insights-grid">
+                        <div class="reportes-alert-card">
+                            <!-- Alertas de riesgos -->
+                        </div>
+                        <div class="reportes-recomendacion-card">
+                            <!-- Recomendación para el banco -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+:root {
+    /* Colores específicos de riesgos */
+    --riesgos-bg: #F4F7FA;
+    --riesgos-card-bg: #FFFFFF;
+    --riesgos-header-bg: #FFFFFF;
+    --riesgos-border: #E2E8F0;
+    
+    /* Colores de score para riesgos */
+    --score-excelente: #27AE60;
+    --score-bueno: #2F80ED;
+    --score-regular: #F2C94C;
+    --score-bajo: #EB5757;
+    
+    /* Espaciado específico de riesgos */
+    --riesgos-spacing-xs: 0.5rem;
+    --riesgos-spacing-sm: 1rem;
+    --riesgos-spacing-md: 1.5rem;
+    --riesgos-spacing-lg: 2rem;
+    --riesgos-spacing-xl: 3rem;
+    
+    /* Sombras específicas */
+    --riesgos-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --riesgos-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --riesgos-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}

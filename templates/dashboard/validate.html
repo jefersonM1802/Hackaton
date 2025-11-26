@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>FinanSight - Validador de Comprobantes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/validate/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/validate/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/validate/validate.css') }}">
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="app-layout">
+        <!-- SideNavBar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <div class="logo-icon">
+                        <span class="material-symbols-outlined text-white">insights</span>
+                    </div>
+                    <h1 class="logo-title">FinanSight</h1>
+                </div>
+                <nav class="sidebar-nav">
+                    <a class="nav-item" href="{{ url_for('dashboard.home') }}">
+                        <span class="material-symbols-outlined">home</span>
+                        <p class="nav-text">Inicio</p>
+                    </a>
+                    <a class="nav-item" href="{{ url_for('upload') }}">
+                        <span class="material-symbols-outlined">description</span>
+                        <p class="nav-text">Documentos</p>
+                    </a>
+                    <a class="nav-item" href="{{ url_for('analysis') }}">
+                        <span class="material-symbols-outlined">psychology</span>
+                        <p class="nav-text">IA – Análisis</p>
+                    </a>
+                    <a class="nav-item active" href="{{ url_for('validate') }}">
+                        <span class="material-symbols-outlined">verified</span>
+                        <p class="nav-text">Validación</p>
+                    </a>
+                    <a class="nav-item" href="{{ url_for('kpis') }}">
+                        <span class="material-symbols-outlined">pie_chart</span>
+                        <p class="nav-text">Indicadores</p>
+                    </a>
+                    <a class="nav-item" href="{{ url_for('risk') }}">
+                        <span class="material-symbols-outlined">security</span>
+                        <p class="nav-text">Riesgos</p>
+                    </a>
+                    <a class="nav-item" href="{{ url_for('projection') }}">
+                        <span class="material-symbols-outlined">trending_up</span>
+                        <p class="nav-text">Proyecciones</p>
+                    </a>
+                    <a class="nav-item" href="{{ url_for('reports') }}">
+                        <span class="material-symbols-outlined">bar_chart</span>
+                        <p class="nav-text">Reportes</p>
+                    </a>
+                    <a class="nav-item" href="{{ url_for('chain') }}">
+                        <span class="material-symbols-outlined">hub</span>
+                        <p class="nav-text">Blockchain – Integridad</p>
+                    </a>
+                </nav>
+                <div class="sidebar-footer">
+                    <a class="nav-item" href="{{ url_for('profile') }}">
+                        <span class="material-symbols-outlined">person</span>
+                        <p class="nav-text">Perfil</p>
+                    </a>
+                    <a class="nav-item" href="{{ url_for('settings') }}">
+                        <span class="material-symbols-outlined">settings</span>
+                        <p class="nav-text">Configuración</p>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-container">
+                <!-- Page Header -->
+                <div class="page-header">
+                    <div class="header-content">
+                        <h1 class="page-title">Validador de Comprobantes</h1>
+                        <p class="page-subtitle">Verifica la validez de tus facturas y boletas de venta directamente con la SUNAT.</p>
+                    </div>
+                </div>
+
+                <!-- Search Section -->
+                <div class="search-section">
+                    <div class="search-card">
+                        <div class="search-question">
+                            <span class="question-icon">Q.</span>
+                            <span class="question-text">Ingrese el número de la factura o boleta</span>
+                        </div>
+                        <div class="search-input-group">
+                            <input type="text" 
+                                   class="search-input" 
+                                   placeholder="Ej: F001-0012345 o B001-0054321"
+                                   id="comprobante-number">
+                            <button class="validate-btn" id="validate-button">
+                                <span class="material-symbols-outlined">search</span>
+                                Validar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section">
+                    <!-- Valid Comprobante -->
+                    <div class="result-card valid">
+                        <div class="result-header">
+                            <span class="status-badge valid">VALIDO</span>
+                        </div>
+                        <div class="result-content">
+                            <div class="result-status">
+                                <p class="status-text">El comprobante es auténtico.</p>
+                            </div>
+                            <div class="result-details-grid">
+                                <div class="detail-group">
+                                    <span class="detail-label">Nº de Comprobante</span>
+                                    <span class="detail-value">F001-0012345</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="detail-label">Fecha de Emisión</span>
+                                    <span class="detail-value">15/07/2024</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="detail-label">RUC Emisor</span>
+                                    <span class="detail-value">20123456789</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="detail-label">Razón Social</span>
+                                    <span class="detail-value">Tecnología Andina S.A.C.</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="detail-label">Monto Total</span>
+                                    <span class="detail-value amount">S/ 1,250.00</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="result-footer">
+                            <div class="verification-info">
+                                <span class="material-symbols-outlined">verified</span>
+                                Verificación realizada con la plataforma oficial de SUNAT.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Invalid Comprobante -->
+                    <div class="result-card invalid">
+                        <div class="result-header">
+                            <span class="status-badge invalid">ANULADO</span>
+                        </div>
+                        <div class="result-content">
+                            <div class="result-status">
+                                <p class="status-text">El comprobante fue dado de baja.</p>
+                            </div>
+                            <div class="result-details-grid">
+                                <div class="detail-group">
+                                    <span class="detail-label">Nº de Comprobante</span>
+                                    <span class="detail-value">B002-0054321</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="detail-label">Fecha de Emisión</span>
+                                    <span class="detail-value">12/07/2024</span>
+                                </div>
+                                <div class="detail-group">
+                                    <span class="detail-label">RUC Emisor</span>
+                                    <span class="detail-value">10987654321</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="result-footer">
+                            <div class="verification-info">
+                                <span class="material-symbols-outlined">verified</span>
+                                Verificación realizada con la plataforma oficial de SUNAT.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state">
+                    <div class="empty-content">
+                        <span class="material-symbols-outlined empty-icon">search</span>
+                        <h3 class="empty-title">Ingresa un número para comenzar</h3>
+                        <p class="empty-description">
+                            Realiza una búsqueda para ver el estado de validación de tu comprobante electrónico aquí.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.getElementById('validate-button').addEventListener('click', function() {
+            const comprobanteNumber = document.getElementById('comprobante-number').value;
+            if (comprobanteNumber.trim()) {
+                // Aquí iría la lógica para validar con SUNAT
+                console.log('Validando:', comprobanteNumber);
+                // Mostrar loading y luego resultados
+            }
+        });
+    </script>
+</body>
+</html>

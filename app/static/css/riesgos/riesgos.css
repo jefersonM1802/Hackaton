@@ -1,0 +1,142 @@
+/* Estilos principales de riesgos */
+.riesgos-container {
+    background-color: var(--riesgos-bg);
+    min-height: 100vh;
+}
+
+.riesgos-header {
+    background: var(--riesgos-header-bg);
+    border-bottom: 1px solid var(--riesgos-border);
+    box-shadow: var(--riesgos-shadow-sm);
+}
+
+.riesgos-main {
+    padding: 2rem 0;
+}
+
+.riesgos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .riesgos-grid {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+@media (min-width: 1280px) {
+    .riesgos-grid {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas: 
+            "score stats stats"
+            "alertas alertas recomendaciones";
+    }
+    
+    .score-section-riesgos {
+        grid-area: score;
+    }
+    
+    .stats-section-riesgos {
+        grid-area: stats;
+    }
+    
+    .alertas-section-riesgos {
+        grid-area: alertas;
+    }
+    
+    .recomendaciones-section-riesgos {
+        grid-area: recomendaciones;
+    }
+}
+
+/* Sección de estadísticas de riesgos */
+.riesgos-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Historial del score de riesgos */
+.riesgos-historial-card {
+    background: var(--riesgos-card-bg);
+    border-radius: 1rem;
+    box-shadow: var(--riesgos-shadow-md);
+    padding: 1.5rem;
+}
+
+.riesgos-historial-chart {
+    height: 160px;
+    display: flex;
+    align-items: flex-end;
+}
+
+/* Sección de alertas de riesgos */
+.riesgos-alertas-card {
+    background: var(--riesgos-card-bg);
+    border-radius: 1rem;
+    box-shadow: var(--riesgos-shadow-md);
+    padding: 1.5rem;
+}
+
+.riesgos-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.riesgos-section-titulo {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.riesgos-ver-todo {
+    color: var(--secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.riesgos-ver-todo:hover {
+    text-decoration: underline;
+}
+
+/* Botones de riesgos */
+.riesgos-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.riesgos-btn-primario {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.riesgos-btn-primario:hover {
+    background-color: #1E6FD9;
+    transform: translateY(-1px);
+}
+
+.riesgos-btn-secundario {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.riesgos-btn-secundario:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}

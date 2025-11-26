@@ -1,0 +1,33 @@
+:root {
+    /* Colores específicos de reportes */
+    --reportes-bg: #FFFFFF;
+    --reportes-card-bg: #F7F9FC;
+    --reportes-header-bg: #FFFFFF;
+    --reportes-border: #E2E8F0;
+    --reportes-surface: #F7F9FC;
+    
+    /* Colores financieros */
+    --ingresos-color: #10B981;
+    --gastos-color: #EF4444;
+    --ganancia-color: #0A2A4E;
+    --primary-light: #4A90E2;
+    
+    /* Espaciado específico de reportes */
+    --reportes-spacing-xs: 0.5rem;
+    --reportes-spacing-sm: 1rem;
+    --reportes-spacing-md: 1.5rem;
+    --reportes-spacing-lg: 2rem;
+    --reportes-spacing-xl: 3rem;
+    
+    /* Sombras específicas */
+    --reportes-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --reportes-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --reportes-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    
+    /* Tipografía reportes */
+    --reportes-font-sm: 0.875rem;
+    --reportes-font-base: 1rem;
+    --reportes-font-lg: 1.125rem;
+    --reportes-font-xl: 1.25rem;
+    --reportes-font-2xl: 1.5rem;
+}

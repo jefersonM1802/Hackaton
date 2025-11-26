@@ -1,0 +1,63 @@
+:root {
+    /* Colores principales */
+    --primary: #0d7ff2;
+    --primary-darker: #0b68c9;
+    --background-light: #f5f7f8;
+    --background-dark: #101922;
+    --white: #ffffff;
+    
+    /* Colores de tarjetas */
+    --card-light: #ffffff;
+    --card-dark: #1a2632;
+    
+    /* Colores de texto */
+    --text-light-primary: #1f2937;
+    --text-dark-primary: #f0f4f8;
+    --text-light-secondary: #6b7280;
+    --text-dark-secondary: #9ca3af;
+    
+    /* Colores de bordes */
+    --border-light: #e5e7eb;
+    --border-dark: #374151;
+    
+    /* Colores de estado */
+    --success-color: #10b981;
+    --success-bg: #dcfce7;
+    --success-border: #86efac;
+    --error-color: #ef4444;
+    --error-bg: #fee2e2;
+    --error-border: #fca5a5;
+    
+    /* Colores para validación */
+    --valid-color: #059669;
+    --valid-bg: #d1fae5;
+    --valid-border: #6ee7b7;
+    --invalid-color: #dc2626;
+    --invalid-bg: #fecaca;
+    --invalid-border: #f87171;
+    
+    /* Tipografía */
+    --font-family: 'Inter', sans-serif;
+    
+    /* Bordes */
+    --border-radius: 0.25rem;
+    --border-radius-lg: 0.5rem;
+    --border-radius-xl: 0.75rem;
+    --border-radius-full: 9999px;
+    
+    /* Sombras */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Modo oscuro */
+.dark {
+    --text-light-primary: var(--text-dark-primary);
+    --text-light-secondary: var(--text-dark-secondary);
+    --border-light: var(--border-dark);
+    --card-light: var(--card-dark);
+    --success-bg: rgba(16, 185, 129, 0.2);
+    --error-bg: rgba(239, 68, 68, 0.2);
+    --valid-bg: rgba(5, 150, 105, 0.2);
+    --invalid-bg: rgba(220, 38, 38, 0.2);
+}
