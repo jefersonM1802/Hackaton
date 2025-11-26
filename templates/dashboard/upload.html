@@ -6,9 +6,11 @@
     <title>FinanSight - Subir Documentos</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-    <link rel="stylesheet" href="/app/static/css/upload/variables.css">
-    <link rel="stylesheet" href="/app/static/css/upload/components.css">
-    <link rel="stylesheet" href="/app/static/css/upload/upload.css">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload/upload.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload/components.css') }}">
+</head>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display">
     <div class="app-layout">
@@ -22,7 +24,7 @@
                     <h1 class="logo-title">FinanSight</h1>
                 </div>
                 <nav class="sidebar-nav">
-                    <a class="nav-item" href="dashboard.html">
+                    <a class="nav-item" href="/dashboard/home">
                         <span class="material-symbols-outlined">home</span>
                         <p class="nav-text">Inicio</p>
                     </a>

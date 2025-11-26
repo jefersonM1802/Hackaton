@@ -1,48 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Registro</title>
+    <meta charset="UTF-8">
+    <title>Crear Cuenta • FinanSight</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
 
-<h2>Registrar usuario</h2>
+<body class="bg-gray-100">
 
-<form method="POST">
+    <!-- Contenedor de pantalla completa -->
+    <div class="min-h-screen flex flex-col lg:flex-row">
 
-    <label>Nombres:</label>
-    <input type="text" name="nombres" required>
-    <br><br>
+        <!-- Parte izquierda con imagen -->
+        <div class="lg:w-1/2 bg-blue-900 text-white flex flex-col items-center justify-center p-10">
+            <img src="/static/registro-img.jpg" 
+                 class="rounded-xl shadow-xl w-3/4 object-cover" 
+                 alt="Imagen FinanSight">
 
-    <label>Apellidos:</label>
-    <input type="text" name="apellidos" required>
-    <br><br>
+            <div class="text-center mt-8">
+                <h1 class="text-3xl font-bold">Potencia tu negocio con decisiones inteligentes.</h1>
+                <p class="text-gray-200 mt-3 text-sm">
+                    Organiza, analiza y accede a nuevas oportunidades financieras con FinanSight.
+                </p>
+            </div>
+        </div>
 
-    <label>DNI:</label>
-    <input type="text" name="dni">
-    <br><br>
+        <!-- Parte derecha con formulario -->
+        <div class="lg:w-1/2 bg-white p-10 flex flex-col justify-center">
 
-    <label>RUC:</label>
-    <input type="text" name="ruc">
-    <br><br>
+            <div class="mb-6">
+                <h1 class="text-4xl font-extrabold text-gray-900">Crea tu cuenta</h1>
+                <p class="text-gray-500 mt-1 text-sm">
+                    Comienza a analizar tus finanzas y potenciar tu negocio.
+                </p>
+            </div>
 
-    <label>Nombre del Negocio:</label>
-    <input type="text" name="negocio_nombre">
-    <br><br>
+            <!-- FORMULARIO -->
+            <form method="POST" class="space-y-4">
 
-    <label>Teléfono:</label>
-    <input type="text" name="telefono">
-    <br><br>
+                <!-- Nombre Completo -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Nombres</label>
+                    <input type="text" name="nombres" required
+                           class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-600"
+                           placeholder="Ingresa tus nombres">
+                </div>
 
-    <label>Correo:</label>
-    <input type="email" name="correo" required>
-    <br><br>
+                <!-- Apellidos -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Apellidos</label>
+                    <input type="text" name="apellidos" required
+                           class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-600"
+                           placeholder="Ingresa tus apellidos">
+                </div>
 
-    <label>Contraseña:</label>
-    <input type="password" name="password" required>
-    <br><br>
+                <!-- DNI -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">DNI</label>
+                    <input type="text" name="dni"
+                           class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-600"
+                           placeholder="Ingresa tu DNI">
+                </div>
 
-    <button type="submit">Registrar</button>
-</form>
+                <!-- RUC -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">RUC</label>
+                    <input type="text" name="ruc"
+                           class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-600"
+                           placeholder="Ingresa tu RUC">
+                </div>
+
+                <!-- Negocio -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Nombre del Negocio</label>
+                    <input type="text" name="negocio_nombre"
+                           class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-600"
+                           placeholder="Ingresa el nombre de tu negocio">
+                </div>
+
+                <!-- Teléfono -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Teléfono</label>
+                    <input type="text" name="telefono"
+                           class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-600"
+                           placeholder="Ej: 987654321">
+                </div>
+
+                <!-- Correo -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
+                    <input type="email" name="correo" required
+                           class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-600"
+                           placeholder="tucorreo@ejemplo.com">
+                </div>
+
+                <!-- Contraseña -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700">Contraseña</label>
+                    <input type="password" name="password" required
+                           class="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-600"
+                           placeholder="Crea una contraseña segura">
+                </div>
+
+                <!-- Checkbox -->
+                <div class="flex items-start mt-2">
+                    <input type="checkbox" required
+                           class="h-4 w-4 text-blue-600 border-gray-300 rounded">
+                    <label class="ml-2 text-sm text-gray-600">
+                        Acepto los <a href="#" class="text-blue-600 font-semibold">Términos y Condiciones</a> 
+                        y la <a href="#" class="text-blue-600 font-semibold">Política de Privacidad</a>.
+                    </label>
+                </div>
+
+                <!-- Botón -->
+                <button type="submit"
+                        class="w-full bg-blue-700 hover:bg-blue-800 text-white py-3 rounded-lg font-semibold text-lg transition">
+                    Crear Cuenta
+                </button>
+            </form>
+
+            <!-- Ya tienes una cuenta -->
+            <p class="text-center text-gray-600 text-sm mt-5">
+                ¿Ya tienes una cuenta?
+                <a href="/login" class="text-blue-700 font-semibold hover:underline">Inicia Sesión</a>
+            </p>
+        </div>
+
+    </div>
 
 </body>
 </html>
